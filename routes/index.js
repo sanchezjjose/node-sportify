@@ -9,7 +9,7 @@ var sportify = new Sportify();
 router.route('/')
   .get(function(req, res) {
 
-    var authCookie = req.session.auth || '';
+    var authCookie = req.cookies.PLAY_SPORTIFY_SESSION || '';
 
     http.get(sportify.roster(authCookie), function(response) {
       var body = '';

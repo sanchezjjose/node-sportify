@@ -25,13 +25,10 @@ router.route('/')
 
       response.on('end', function() {
 
-        // Setting session auth value with cookie in response from play framework server
-  	  	// This only lives on the server, and cannot be tampered with like a normal cookie would
-  	  	// by the user. This cookie should always match with play framework server cookie.
   	  	var setCookie = response.headers["set-cookie"];
 
   	  	if (setCookie) {
-  	  	  req.session.auth = setCookie[0];
+          res.cookie('PLAY_SPORTIFY_SESSION', setCookie[0], { httpOnly: true });
   	      res.redirect('/');
   	      
   	    } else {

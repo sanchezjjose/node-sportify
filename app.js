@@ -2,8 +2,8 @@ var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
-var session = require('express-session');
 var bodyParser = require('body-parser');  // for reading POSTed form data into `req.body`
+var cookieParser = require('cookie-parser');
 
 var routes = require('./routes/index');
 var login = require('./routes/login');
@@ -20,16 +20,7 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(session({ name: 'NODE_SPORTIFY_SESSION',
-                  secret: 'houston43', 
-                  saveUninitialized: true, 
-                  resave: false, 
-                  cookie: { maxAge: 1000 * 60 * 60 * 24 }
-                  
-                  // uses MemoryStore by default which is volatile,
-                  // need to persist to a db store in order to keep it alive on restart
-                  // store: new RedisStore
-                }));
+app.use(cookieParser());
 
 if (app.get('env') === 'development') {
   app.use(require('connect-livereload')());
