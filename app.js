@@ -2,11 +2,15 @@ var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
+var session = require('express-session');
 var bodyParser = require('body-parser');  // for reading POSTed form data into `req.body`
 var cookieParser = require('cookie-parser');
 
-var routes = require('./routes/index');
+var home = require('./routes/index');
 var login = require('./routes/login');
+var roster = require('./routes/roster');
+var schedule = require('./routes/schedule');
+var account = require('./routes/account');
 
 var app = module.exports.app = exports.app = express();
 var exphbs = require('express-handlebars');
@@ -20,6 +24,10 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(session({ name: 'NODE_SPORTIFY_SESSION',
+                  secret: 'houston43', 
+                  saveUninitialized: true, 
+                  resave: false }));
 app.use(cookieParser());
 
 if (app.get('env') === 'development') {
@@ -28,8 +36,52 @@ if (app.get('env') === 'development') {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/login', login);
+// TODO: Maybe add a middleware route here which does 2 things:
+// 1: checks if a user is authenticated and redirect to login if not, otherwise go to next()
+// 2: gets the current team id and passes that to the next route (or set to some session variable)
+
+// app.use(function(req, res, next) {
+//   req.session.userContext = {'team_id' : 654321};
+
+//   console.log('AAAAAA');
+//   console.log(req.session);
+
+//   next();
+// });
+
+// a middleware sub-stack which handles GET requests to /user/:id
+// app.get('/*', function (req, res, next) {
+
+//   // if user id is 0, skip to the next router
+//   if (req.cookies.PLAY_SPORTIFY_SESSION) {
+//     req.session.requestContext = {'team_id' : 654321};
+
+//     console.log("ZZZ");
+//     next('route');
+//   }
+//   // else pass the control to the next middleware in this stack
+//   else {
+//     console.log("XXX");
+//     next();
+//   } 
+
+// }, function (req, res, next) {
+//   // res.render('login', { title: 'Login', layout: 'login_reg' });
+//   console.log('YYYY');
+
+//   // req.location('/login');
+//   res.render('login', { title: 'Login', layout: 'login_reg' }); // TODO: send error back to client
+
+//   // res.redirect('/login');
+//   // res.end();
+// });
+
+
+app.use('/', login);
+app.use('/', home);
+app.use('/', roster);
+app.use('/', schedule);
+app.use('/', account);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

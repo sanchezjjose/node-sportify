@@ -9,8 +9,7 @@ var sportify = new Sportify();
 var Helper = require('./helper');
 var helper = new Helper();
 
-router.get('/', helper.isAuthenticated, function(req, res) {
-
+router.get('/schedule', helper.isAuthenticated, function(req, res) {
   var authCookie = req.cookies.PLAY_SPORTIFY_SESSION || '';
 
   http.get(sportify.roster(authCookie), function(response) {
@@ -21,7 +20,7 @@ router.get('/', helper.isAuthenticated, function(req, res) {
     });
 
     response.on('end', function() {
-      res.render('index', JSON.parse(body));
+      res.render('schedule', JSON.parse(body));
     });
 
   }).on('error', function(e) {
