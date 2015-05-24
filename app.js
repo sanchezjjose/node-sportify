@@ -36,52 +36,13 @@ if (app.get('env') === 'development') {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// TODO: Maybe add a middleware route here which does 2 things:
-// 1: checks if a user is authenticated and redirect to login if not, otherwise go to next()
-// 2: gets the current team id and passes that to the next route (or set to some session variable)
-
-// app.use(function(req, res, next) {
-//   req.session.userContext = {'team_id' : 654321};
-
-//   console.log('AAAAAA');
-//   console.log(req.session);
-
-//   next();
-// });
-
-// a middleware sub-stack which handles GET requests to /user/:id
-// app.get('/*', function (req, res, next) {
-
-//   // if user id is 0, skip to the next router
-//   if (req.cookies.PLAY_SPORTIFY_SESSION) {
-//     req.session.requestContext = {'team_id' : 654321};
-
-//     console.log("ZZZ");
-//     next('route');
-//   }
-//   // else pass the control to the next middleware in this stack
-//   else {
-//     console.log("XXX");
-//     next();
-//   } 
-
-// }, function (req, res, next) {
-//   // res.render('login', { title: 'Login', layout: 'login_reg' });
-//   console.log('YYYY');
-
-//   // req.location('/login');
-//   res.render('login', { title: 'Login', layout: 'login_reg' }); // TODO: send error back to client
-
-//   // res.redirect('/login');
-//   // res.end();
-// });
-
-
+// app.use(helper.getUserContext);
+app.get('/', function(req, res) { res.redirect('/login'); });
 app.use('/', login);
-app.use('/', home);
-app.use('/', roster);
-app.use('/', schedule);
 app.use('/', account);
+app.use('/team/:id', home);
+app.use('/team/:id', roster);
+app.use('/team/:id', schedule);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

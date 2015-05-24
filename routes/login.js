@@ -3,8 +3,7 @@ var router = express.Router();
 var http = require('http');
 var querystring = require('querystring');
 
-var Sportify = require('../public/javascripts/sportify.js');
-var sportify = new Sportify();
+var sportify = require('../public/javascripts/sportify.js');
 
 router.get('/login', function(req, res) {
   res.render('login', { title: 'Login', layout: 'login_reg' });
@@ -25,7 +24,7 @@ router.post('/login' ,function(req, res) {
 
 	  	if (setCookie) {
         res.cookie('PLAY_SPORTIFY_SESSION', setCookie[0], { httpOnly: true });
-	      res.redirect('/');
+	      res.redirect('/team/654321');
 	      
 	    } else {
 	      res.render('login', { title: 'Login', layout: 'login_reg' }); // TODO: send error back to client

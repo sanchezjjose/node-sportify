@@ -3,11 +3,8 @@ var router = express.Router();
 var http = require('http');
 var querystring = require('querystring');
 
-var Sportify = require('../public/javascripts/sportify.js');
-var sportify = new Sportify();
-
-var Helper = require('./helper');
-var helper = new Helper();
+var sportify = require('../public/javascripts/sportify.js');
+var helper = require('./helper');
 
 router.get('/', helper.isAuthenticated, function(req, res) {
 

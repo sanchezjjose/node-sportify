@@ -9,6 +9,8 @@ gulp.task('server', function() {
   	          'public/images/*',
   	          'public/stylesheets/*.less',
               'routes/*.js',
+              'views/*.hbs',
+              'views/*/*.hbs',
   	          'app.js'],
   	          server.notify);
 
