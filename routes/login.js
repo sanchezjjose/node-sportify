@@ -8,6 +8,11 @@ var sportifyClient = require('../public/javascripts/sportify.js');
 router.get('/login', function(req, res) {
   res.render('login', { title: 'Login', layout: 'login_reg' });
 })
+
+router.get('/logout', function(req, res) {
+  res.clearCookie('PLAY_SPORTIFY_SESSION');
+  res.redirect('/login');
+})
   
 router.post('/login' ,function(req, res) {
   var postData = querystring.stringify(req.body);
@@ -21,10 +26,10 @@ router.post('/login' ,function(req, res) {
 
     response.on('end', function() {
 	  	var setCookie = response.headers["set-cookie"];
-
+      
 	  	if (setCookie) {
         res.cookie('PLAY_SPORTIFY_SESSION', setCookie[0], { httpOnly: true });
-	      res.redirect('/team/654321');
+	      res.redirect(response.headers.location);
 	      
 	    } else {
 	      res.render('login', { title: 'Login', layout: 'login_reg' }); // TODO: send error back to client
