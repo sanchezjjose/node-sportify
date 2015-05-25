@@ -1,9 +1,12 @@
 <nav class='navigation'>
   <ul>
   {{current.name}}
-  	<li><a href='/team/{{current._id}}/'>Home</a></li>
+  	<li><a href='/team/{{current._id}}'>Home</a></li>
   	<li><a href='/team/{{current._id}}/schedule'>Schedule</a></li>
   	<li><a href='/team/{{current._id}}/roster'>Roster</a></li>
-  	<li><a href='/account'>Account</a></li>
+  	<li><a href='/account?team_id={{current._id}}'>Account</a></li>
   </ul>
+  {{#each other}}
+    <a href='/team/{{_id}}'>{{name}}</a>    
+  {{/each}}
 </nav> 

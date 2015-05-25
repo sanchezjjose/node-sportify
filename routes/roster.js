@@ -3,13 +3,12 @@ var router = express.Router();
 var http = require('http');
 var querystring = require('querystring');
 
-var sportify = require('../public/javascripts/sportify.js');
+var sportifyClient = require('../public/javascripts/sportify.js');
 var helper = require('./helper');
 
 router.get('/roster', helper.isAuthenticated, function(req, res) {
-  var authCookie = req.cookies.PLAY_SPORTIFY_SESSION || '';
 
-  http.get(sportify.roster(authCookie), function(response) {
+  http.get(sportifyClient.get(req), function(response) {
     var body = '';
 
     response.on('data', function(chunk) {

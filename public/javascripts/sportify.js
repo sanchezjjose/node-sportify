@@ -1,17 +1,17 @@
 
 var sportify = {
 
-  roster : function(authCookie) {
+  get : function(request) {
 
     return {
       host: 'localhost',
       port: 9000,
-      path: '/team/654321/roster', // TODO: team id needs to be configurable
+      path: request.originalUrl,
       method: 'GET',
       headers: { 
         'Accept': 'application/json',
         'Transfer-Encoding' :'chunked',
-        'Cookie' : authCookie
+        'Cookie' : request.cookies.PLAY_SPORTIFY_SESSION
       }
     };
   },

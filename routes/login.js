@@ -3,7 +3,7 @@ var router = express.Router();
 var http = require('http');
 var querystring = require('querystring');
 
-var sportify = require('../public/javascripts/sportify.js');
+var sportifyClient = require('../public/javascripts/sportify.js');
 
 router.get('/login', function(req, res) {
   res.render('login', { title: 'Login', layout: 'login_reg' });
@@ -12,7 +12,7 @@ router.get('/login', function(req, res) {
 router.post('/login' ,function(req, res) {
   var postData = querystring.stringify(req.body);
 
-  var postReq = http.request(sportify.login(), function(response) {
+  var postReq = http.request(sportifyClient.login(), function(response) {
     var body = '';
 
     response.on('data', function(chunk) {
