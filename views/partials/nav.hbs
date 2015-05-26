@@ -1,12 +1,20 @@
-<nav class='navigation'>
-  <ul>
-  {{current.name}}
-  	<li><a href='/team/{{current._id}}'>Home</a></li>
-  	<li><a href='/team/{{current._id}}/schedule'>Schedule</a></li>
-  	<li><a href='/team/{{current._id}}/roster'>Roster</a></li>
-  	<li><a href='/account?team_id={{current._id}}'>Account</a></li>
-  </ul>
-  {{#each other}}
-    <a href='/team/{{_id}}'>{{name}}</a>    
-  {{/each}}
+<nav class='navigation' role='navigation'>
+  <div class='nav-content'>
+    <div class='nav-main'>
+		  <ul class='nav-list'>
+		    <li class='nav-logo'>Sportify</li>
+		  	<li class='nav-tab tab-home'><a href='/team/{{current._id}}'>Home</a></li>
+		  	<li class='nav-tab tab-schedule'><a href='/team/{{current._id}}/schedule'>Schedule</a></li>
+		  	<li class='nav-tab tab-roster'><a href='/team/{{current._id}}/roster'>Roster</a></li>
+		  	<li class='nav-tab tab-account'><a href='/account?team_id={{current._id}}'>Account</a></li>
+		  </ul>
+		</div>
+		{{!--  
+	  <ul class='nav-teams-dropdown'>
+	    {{#each other}}
+	      <a href='/team/{{_id}}'>{{name}}</a>    
+	    {{/each}}
+	  </ul> 
+	  --}}
+	</div>
 </nav> 
