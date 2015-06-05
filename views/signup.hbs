@@ -1,1 +1,94 @@
 <h1>{{title}}</h1>
+
+<div class="main">
+	<form action="/signup" method="POST">
+	  <div class="signup">
+      <fieldset>
+        <legend>Account Information</legend>
+
+				<div class="" id="email_field">
+					<label for="email">Email</label>
+					<div class="input">
+						<input type="text" id="email" name="email" value="">
+					</div>
+				</div>
+
+				<div class="" id="password_field">
+					<label for="password">Password</label>
+					<div class="input">
+						<input type="password" id="password" name="password">
+					</div>
+				</div>
+
+				<div class="" id="first_name_field">
+					<label for="first_name">First Name</label>
+					<div class="input">
+						<input type="text" id="first_name" name="first_name" value="">
+					</div>
+				</div>
+
+				<div class="" id="last_name_field">
+					<label for="last_name">Last Name</label>
+					<div class="input">
+						<input type="text" id="last_name" name="last_name" value="">
+					</div>
+				</div>
+
+				<div class="" id="number_field">
+					<label for="number">Jersey Number</label>
+					<div class="input">
+						<input type="text" id="number" name="number" value="">
+					</div>
+				</div>
+
+				<div class="" id="phone_number_field">
+					<label for="phone_number">Phone Number</label>
+					<div class="input">
+						<input type="text" id="phone_number" name="phone_number" value="">
+						<span class="help">This will only be used by our team if we need to contact each other.</span> 
+					</div>
+				</div>
+
+				<div class="clearfix  " id="team_id_field">
+					<label for="team_id">Team ID</label>
+					<div class="input">
+						<input type="text" id="team_id" name="team_id" value="">
+						<span class="help">If you don't have a team id, please request it from your team captain.</span> 
+					</div>
+				</div>
+
+			  <div class="clearfix" id="sport_field">
+		      <label for="sport">Sport</label>
+		      <div class="input">
+			      <select class="form-control" id="sport" name="sport">
+		          <option class="blank" value="">-------- Choose a Sport --------</option>
+		          <option value="Basketball">Basketball</option>
+		          <option value="Ping Pong">Ping Pong</option>
+			      </select>
+		      </div>
+			  </div>
+
+			  <div class="hidden clearfix" id="position_field">
+		      <label for="position">Position</label>
+		      <div class="input">
+			      <select class="form-control" id="position" name="position">
+		          <option class="blank" value="">-------- Choose a Position --------</option>
+		          <option value="PG">PG</option>
+		          <option value="SG">SG</option>
+		          <option value="SF">SF</option>
+		          <option value="F">F</option>
+		          <option value="C">C</option>
+			      </select>
+		      </div>
+			  </div>
+
+			</fieldset>
+
+			<div class="actions">
+			  <input type="submit" class="btn btn-primary" value="Sign Up">
+			  <a href="/" class="btn btn-default">Cancel</a>
+			</div>
+
+		</div>
+	</form>
+</div>
