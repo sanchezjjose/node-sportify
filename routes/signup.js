@@ -5,19 +5,14 @@ var querystring = require('querystring');
 
 var sportifyClient = require('../public/javascripts/sportify.js');
 
-router.get('/login', function(req, res) {
-  res.render('login', { title: 'Login', layout: 'login_reg' });
-})
-
-router.get('/logout', function(req, res) {
-  res.clearCookie('PLAY_SPORTIFY_SESSION');
-  res.redirect('/login');
+router.get('/signup', function(req, res) {
+  res.render('signup', { title: 'Signup', layout: 'login_reg' });
 })
   
-router.post('/login' ,function(req, res) {
+router.post('/signup' ,function(req, res) {
   var postData = querystring.stringify(req.body);
 
-  var postReq = http.request(sportifyClient.login(), function(response) {
+  var postReq = http.request(sportifyClient.signup(), function(response) {
     var body = '';
 
     response.on('data', function(chunk) {
@@ -32,7 +27,7 @@ router.post('/login' ,function(req, res) {
 	      res.redirect(response.headers.location);
 	      
 	    } else {
-	      res.render('login', { title: 'Login', layout: 'login_reg' }); // TODO: send error back to client
+	      res.render('signup', { title: 'Signup', layout: 'login_reg' }); // TODO: send error back to client
       }
     });
 

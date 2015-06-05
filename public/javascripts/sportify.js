@@ -27,6 +27,19 @@ var sportify = {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     };
+  },
+
+  signup : function() {
+
+    return {
+      host: 'localhost',
+      port: 9000,
+      path: '/signup/submit',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    };
   }
 };
 

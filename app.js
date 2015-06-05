@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 
 var home = require('./routes/index');
 var login = require('./routes/login');
+var signup = require('./routes/signup');
 var roster = require('./routes/roster');
 var schedule = require('./routes/schedule');
 var account = require('./routes/account');
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(helper.getUserContext);
 app.get('/', function(req, res) { res.redirect('/login'); });
 app.use('/', login);
+app.use('/', signup);
 app.use('/', account);
 app.use('/team/:id', home);
 app.use('/team/:id', roster);

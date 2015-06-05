@@ -1,0 +1,127 @@
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: "Myriad Set Pro","Lucida Grande","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+#globalnav {
+  position: relative;
+  z-index: 9999;
+  margin-bottom: 0;
+  min-width: 1010px;
+  height: 2.55556em;
+  margin: 0 auto 1em;
+  background: rgba(0,0,0,0.6);
+  font-size: 18px;
+
+  @media only screen and (max-width: 1023px) {
+    min-width: 100%;
+  }
+}
+
+.navigation {
+
+  .nav-content {
+    margin: 0 auto;
+    width: 980px;
+
+    @media only screen and (max-width: 1023px)  {
+      width: auto;
+    }
+  }
+
+  ul {
+    font-size: 1em;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-list {
+    height: 2.55556em;
+    position: relative;
+    margin-left: 12px;
+    margin-right: 12px;
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    z-index: 1;
+    width: auto;
+
+    @media only screen and (max-width: 1023px) {
+      margin-left: 12px;
+      margin-right: 12px;
+      width: auto;
+    }
+
+    li {
+      line-height: 1;
+      font-size: 1em;
+      font-style: normal;
+      font-weight: normal;
+    }
+
+    .nav-tab {
+      display: inline-block;
+      height: 2.55556em;
+      list-style-type: none;
+      margin: 0;
+      vertical-align: top;
+
+      a {
+        color: #000;
+      }
+
+      a:link {
+        text-decoration: none;
+      }
+
+      .nav-tab-link {
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: auto 1.11111em;
+        background-size: auto 20px\0;
+        display: block;
+        height: 2.55556em;
+        padding: 0 10px;
+        position: relative;
+        opacity: 1;
+        outline-offset: -0.22222em;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        width: 2.16667em;
+
+        @media only screen and (max-width: 1023px) {
+          background-size: auto 18px;
+        }
+      }
+    }
+  }
+
+  .nav-list:after {
+    content: '';
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    width: 100%;
+  }
+}
+
+.footer {
+  background-color: lightgrey;
+  color: blue;
+  height: 100px;
+  width: auto;
+}
