@@ -40,6 +40,21 @@ var sportify = {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     };
+  },
+
+  account : function(request) {
+
+    return {
+      host: 'localhost',
+      port: 9000,
+      path: '/account/submit?team_id=' + request.query.team_id,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Transfer-Encoding' :'chunked',
+        'Cookie' : request.cookies.PLAY_SPORTIFY_SESSION
+      }
+    };
   }
 };
 

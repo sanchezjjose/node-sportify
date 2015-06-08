@@ -24,4 +24,26 @@ router.get('/account', helper.isAuthenticated, function(req, res) {
   });
 })
 
+router.post('/account', helper.isAuthenticated, function(req, res) {
+  var postData = querystring.stringify(req.body);
+
+  var postReq = http.request(sportifyClient.account(req), function(response) {
+    var body = '';
+
+    response.on('data', function(chunk) {
+      body += chunk.toString();
+    });
+
+    response.on('end', function() {
+      res.redirect('/account?team_id=' + req.query.team_id);
+    });
+
+  }).on('error', function(e) {
+    res.send(e.message);
+  });
+
+  postReq.write(postData);
+  postReq.end();
+})
+
 module.exports = router;

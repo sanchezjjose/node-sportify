@@ -14,7 +14,7 @@ router.get('/logout', function(req, res) {
   res.redirect('/login');
 })
   
-router.post('/login' ,function(req, res) {
+router.post('/login', function(req, res) {
   var postData = querystring.stringify(req.body);
 
   var postReq = http.request(sportifyClient.login(), function(response) {
