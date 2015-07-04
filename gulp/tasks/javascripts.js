@@ -1,26 +1,27 @@
 var gulp  = require('gulp');
-var jshint  = require('gulp-jshint');
 var browserify = require('browserify');
-var transform = require('vinyl-transform');
+
 var uglify = require('gulp-uglify');
+var streamify = require('gulp-streamify');
 var rename = require('gulp-rename');
+var print = require('gulp-print');
 
-var BASE = 'public/javascripts/sportify.js';
-var BASE_MINIFIED = 'sportify.min.js';
-var DEST_DIR = 'public/javascripts/';
+var source = require('vinyl-source-stream');
 
+var BASE = './public/javascripts/main.js';
+var BASE_MINIFIED = 'bundle.js';
+var DEST_DIR = './public/build/';
 
 gulp.task('uglify-js', function() {
-  var browserified = transform(function(filename) {
-    var b = browserify(filename);
-    return b.bundle();
-  });
+  var bundleStream = browserify(BASE).bundle();
 
-  return gulp.src(BASE)
-    .pipe(browserified)
-    .pipe(uglify())
+  return bundleStream
+    .pipe(source(BASE))
+    .pipe(print())
+    .pipe(streamify(uglify()))
     .pipe(rename(BASE_MINIFIED))
-    .pipe(gulp.dest(DEST_DIR));
+    .pipe(gulp.dest(DEST_DIR))
+    .pipe(print());
 });
 
 gulp.task('js', ['uglify-js']);
