@@ -25,3 +25,18 @@
 	</div>
 
 </div>
+
+<section class='g5-component' id='fed-component--lineups'></section>
+
+<script type="text/javascript" src="/javascripts/bundle.js"></script>
+
+  <script>
+  var linescoreComponent = g5Component({
+      container: document.getElementById('fed-component--lineups'),
+      css: 'g5-component-lineups fed-component--lineups',
+      interval: 15000,
+      path: '/javascripts/linescore.json'
+  });
+
+  linescoreComponent.init();
+</script>
