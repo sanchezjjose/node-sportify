@@ -1,12 +1,11 @@
 
 'use strict';
- 
-const react = require('react');
-const sportifyClient = require('./sportify');
+
+const HelloReact = require('./hello_react');
 
 function onLoad() {
 
-	console.log("HELLO WORLD!!!");
+	HelloReact.init();
 }
 
 window.onload = onLoad;

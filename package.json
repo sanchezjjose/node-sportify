@@ -2,16 +2,28 @@
   "name": "application-name",
   "version": "0.0.1",
   "private": true,
+  "browserify": {
+    "transform": [
+      [
+        "hbsfy",
+        {
+          "extensions": [
+            "html"
+          ]
+        }
+      ]
+    ]
+  },
   "scripts": {
     "server": "node ./bin/www",
     "start": "npm run build && npm run server",
     "start-dev": "npm run build-cjs && npm run server & npm run watch",
-    "build-cjs": "browserify public/javascripts/main.js | uglifyjs -mc > public/javascripts/bundle-dev.js",
-    "build-js": "browserify public/javascripts/main.js --standalone 'main' | uglifyjs -mc > public/javascripts/bundle.js",
-    "build-css": "lessc src/styles/component.less > src/static/bundle.css",
+    "build-cjs": "browserify public/javascripts/main.js | uglifyjs -mc > public/build/bundle.js",
+    "build-js": "browserify public/javascripts/main.js --standalone 'main' | uglifyjs -mc > public/build/bundle.js",
+    "build-css": "lessc public/stylesheets/style.less > public/build/bundle.css",
     "build": "npm run build-js && npm run build-cjs",
-    "watch-js": "watchify public/javascripts/main.js -o public/javascripts/bundle-dev.js -dv",
-    "watch-css": "catw -w -c 'lessc -' 'public/stylesheets/component.less' -o public/stylesheets/bundle.css -v",
+    "watch-js": "watchify public/javascripts/main.js -o public/build/bundle.js -dv",
+    "watch-css": "catw -w -c 'lessc -' 'public/stylesheets/style.less' -o public/build/bundle.css -v",
     "watch": "npm run watch-js"
   },
   "dependencies": {
@@ -39,6 +51,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.1.0",
+    "handlebars": "^3.0.3",
+    "hbsfy": "^2.2.1",
     "require-dir": "^0.3.0",
     "tiny-lr": "^0.1.5",
     "vinyl-source-stream": "^1.1.0",
