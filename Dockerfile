@@ -21,4 +21,4 @@ EXPOSE 3000
 WORKDIR /src
 
 
-CMD ["npm", "start"]
+CMD ["node", "/src/bin/www"]

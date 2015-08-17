@@ -3,6 +3,8 @@ sportify_app:
   container_name: node-sportify
   environment:
     - NODE_ENV=development
+    - VIRTUAL_HOST=node.sportify.local
+    - VIRTUAL_PORT=3000
   links:
     - sportify
   ports:
@@ -19,6 +21,8 @@ sportify:
     - SPORTIFY_SENDGRID_PASSWORD
     - SPORTIFY_FROM_EMAIL
     - SPORTIFY_TEST_EMAIL
+    - VIRTUAL_HOST=play.sportify.local
+    - VIRTUAL_PORT=9000
   image: sanchezjjose/sportify
   ports:
     - "9000:9000"
@@ -26,10 +30,10 @@ sportify:
   volumes:
     - /Users/sanchez_j/Code/sportify:/app
   
-#nginx:
-#  container_name: nginx-proxy
-#  image: jwilder/nginx-proxy
-#  volumes:
-#    - /var/run/docker.sock:/tmp/docker.sock
-#  ports:
-#    - "80:80"
+nginx:
+  container_name: nginx-proxy
+  image: jwilder/nginx-proxy
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+  ports:
+    - "80:80"
