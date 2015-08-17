@@ -1,4 +1,5 @@
 FROM ubuntu:14.04
+MAINTAINER Jose Sanchez <Jose.Sanchez@mlb.com>
 
 
 RUN apt-get update \

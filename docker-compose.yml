@@ -1,0 +1,33 @@
+sportify_app:
+  build: .
+  container_name: node-sportify
+  links:
+    - sportify
+  ports:
+    - "3000:3000"
+  volumes:
+    - /Users/sanchez_j/Code/node-sportify:/src
+
+sportify:
+  container_name: sportify
+  environment:
+    - SPORTIFY_DB_NAME
+    - SPORTIFY_MONGO_URL
+    - SPORTIFY_SENDGRID_USERNAME
+    - SPORTIFY_SENDGRID_PASSWORD
+    - SPORTIFY_FROM_EMAIL
+    - SPORTIFY_TEST_EMAIL
+  image: sanchezjjose/sportify
+  ports:
+    - "9000:9000"
+  stdin_open: true # https://github.com/playframework/playframework/issues/4001
+  volumes:
+    - /Users/sanchez_j/Code/sportify:/app
+  
+#nginx:
+#  container_name: nginx-proxy
+#  image: jwilder/nginx-proxy
+#  volumes:
+#    - /var/run/docker.sock:/tmp/docker.sock
+#  ports:
+#    - "80:80"
