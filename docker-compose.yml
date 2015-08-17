@@ -1,6 +1,8 @@
 sportify_app:
   build: .
   container_name: node-sportify
+  environment:
+    - NODE_ENV=development
   links:
     - sportify
   ports:
