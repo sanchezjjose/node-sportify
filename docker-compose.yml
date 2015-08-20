@@ -2,7 +2,6 @@ sportify_app:
   build: .
   container_name: node-sportify
   environment:
-    - NODE_ENV=development
     - VIRTUAL_HOST=node.sportify.local
     - VIRTUAL_PORT=3000
   links:
@@ -10,7 +9,7 @@ sportify_app:
   ports:
     - "3000:3000"
   volumes:
-    - /Users/sanchez_j/Code/node-sportify:/src
+    - ~/Code/node-sportify:/usr/src/app
 
 sportify:
   container_name: sportify
@@ -28,7 +27,7 @@ sportify:
     - "9000:9000"
   stdin_open: true # https://github.com/playframework/playframework/issues/4001
   volumes:
-    - /Users/sanchez_j/Code/sportify:/app
+    - ~/Code/sportify:/app
   
 nginx:
   container_name: nginx-proxy

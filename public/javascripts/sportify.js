@@ -4,7 +4,7 @@ var sportify = {
   get : function(request) {
 
     return {
-      host: 'play.sportify.local',
+      host: '192.168.99.100',
       port: 9000,
       path: request.originalUrl,
       method: 'GET',
@@ -19,7 +19,7 @@ var sportify = {
   login : function() {
 
     return {
-      host: 'play.sportify.local',
+      host: '192.168.99.100',
       port: 9000,
       path: '/login/submit',
       method: 'POST',
@@ -32,7 +32,7 @@ var sportify = {
   signup : function() {
 
     return {
-      host: 'play.sportify.local',
+      host: '192.168.99.100',
       port: 9000,
       path: '/signup/submit',
       method: 'POST',
@@ -45,7 +45,7 @@ var sportify = {
   account : function(request) {
 
     return {
-      host: 'play.sportify.local',
+      host: '192.168.99.100',
       port: 9000,
       path: '/account/submit?team_id=' + request.query.team_id,
       method: 'POST',

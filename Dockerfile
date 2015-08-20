@@ -1,24 +1,17 @@
-FROM ubuntu:14.04
+FROM nodesource/trusty:0.12.4
 MAINTAINER Jose Sanchez <Jose.Sanchez@mlb.com>
 
-
-RUN apt-get update \
-    && apt-get install --yes curl \
-    && curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash - \
-    && apt-get install --yes nodejs
+# copy to current working directory [/usr/src/app]
+COPY . .
 
 
-COPY . /src
+RUN npm install
 
 
-RUN cd /src \ 
-    && npm install
+ENV NODE_ENV development
 
 
 EXPOSE 3000
 
 
-WORKDIR /src
-
-
-CMD ["node", "/src/bin/www"]
+CMD ["node", "./bin/www"]
