@@ -1,17 +1,24 @@
-FROM nodesource/trusty:0.12.4
+FROM node:0.12.4
 MAINTAINER Jose Sanchez <Jose.Sanchez@mlb.com>
 
-# copy to current working directory [/usr/src/app]
-COPY . .
+
+WORKDIR /usr/src/app
+
+
+# http://www.clock.co.uk/blog/a-guide-on-how-to-cache-npm-install-with-docker
+ADD package.json package.json
 
 
 RUN npm install
 
 
-ENV NODE_ENV development
+ADD . .
 
 
 EXPOSE 3000
+
+
+ENV NODE_ENV dev
 
 
 CMD ["node", "./bin/www"]
