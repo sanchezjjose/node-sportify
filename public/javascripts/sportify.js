@@ -4,8 +4,8 @@ var sportify = {
   get : function(request) {
 
     return {
-      host: '192.168.99.100',
-      port: 9000,
+      host: process.env.SPORTIFY_HOST,
+      port: process.env.SPORTIFY_SERVICE_PORT,
       path: request.originalUrl,
       method: 'GET',
       headers: { 
@@ -19,8 +19,8 @@ var sportify = {
   login : function() {
 
     return {
-      host: '192.168.99.100',
-      port: 9000,
+      host: process.env.SPORTIFY_HOST,
+      port: process.env.SPORTIFY_SERVICE_PORT,
       path: '/login/submit',
       method: 'POST',
       headers: {
@@ -32,8 +32,8 @@ var sportify = {
   signup : function() {
 
     return {
-      host: '192.168.99.100',
-      port: 9000,
+      host: process.env.SPORTIFY_HOST,
+      port: process.env.SPORTIFY_SERVICE_PORT,
       path: '/signup/submit',
       method: 'POST',
       headers: {
@@ -45,8 +45,8 @@ var sportify = {
   account : function(request) {
 
     return {
-      host: '192.168.99.100',
-      port: 9000,
+      host: process.env.SPORTIFY_HOST,
+      port: process.env.SPORTIFY_SERVICE_PORT,
       path: '/account/submit?team_id=' + request.query.team_id,
       method: 'POST',
       headers: {

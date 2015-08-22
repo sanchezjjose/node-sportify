@@ -18,7 +18,4 @@ ADD . .
 EXPOSE 3000
 
 
-ENV NODE_ENV dev
-
-
 CMD ["node", "./bin/www"]

@@ -1,0 +1,15 @@
+sportify_app:
+  extends:
+    file: common.yml
+    service: sportify_app
+  environment:
+    - NODE_ENV=production
+    - SPORTIFY_SERVICE_HOST=sportify-app.herokuapp.com
+    - SPORTIFY_SERVICE_PORT=9000
+  links:
+    - sportify
+
+sportify:
+  extends:
+    file: common.yml
+    service: sportify

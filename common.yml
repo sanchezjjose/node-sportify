@@ -1,0 +1,23 @@
+sportify_app:
+  build: .
+  container_name: node-sportify
+  ports:
+    - "3000:3000"
+  volumes:
+    - ~/Code/node-sportify:/usr/src/app
+
+sportify:
+  container_name: sportify
+  environment:
+    - SPORTIFY_DB_NAME
+    - SPORTIFY_MONGO_URL
+    - SPORTIFY_SENDGRID_USERNAME
+    - SPORTIFY_SENDGRID_PASSWORD
+    - SPORTIFY_FROM_EMAIL
+    - SPORTIFY_TEST_EMAIL
+  image: sanchezjjose/sportify
+  ports:
+    - "9000:9000"
+  stdin_open: true # https://github.com/playframework/playframework/issues/4001
+  volumes:
+    - ~/Code/sportify:/app
