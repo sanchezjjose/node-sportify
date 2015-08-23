@@ -1,11 +1,13 @@
 
+var config = require('./config');
+
 var sportify = {
 
   get : function(request) {
 
     return {
-      host: process.env.SPORTIFY_HOST,
-      port: process.env.SPORTIFY_SERVICE_PORT,
+      host: config.SPORTIFY_SERVICE_HOST,
+      port: config.SPORTIFY_SERVICE_PORT,
       path: request.originalUrl,
       method: 'GET',
       headers: { 
@@ -19,8 +21,8 @@ var sportify = {
   login : function() {
 
     return {
-      host: process.env.SPORTIFY_HOST,
-      port: process.env.SPORTIFY_SERVICE_PORT,
+      host: config.SPORTIFY_SERVICE_HOST,
+      port: config.SPORTIFY_SERVICE_PORT,
       path: '/login/submit',
       method: 'POST',
       headers: {
@@ -32,8 +34,8 @@ var sportify = {
   signup : function() {
 
     return {
-      host: process.env.SPORTIFY_HOST,
-      port: process.env.SPORTIFY_SERVICE_PORT,
+      host: config.SPORTIFY_SERVICE_HOST,
+      port: config.SPORTIFY_SERVICE_PORT,
       path: '/signup/submit',
       method: 'POST',
       headers: {
@@ -45,8 +47,8 @@ var sportify = {
   account : function(request) {
 
     return {
-      host: process.env.SPORTIFY_HOST,
-      port: process.env.SPORTIFY_SERVICE_PORT,
+      host: config.SPORTIFY_SERVICE_HOST,
+      port: config.SPORTIFY_SERVICE_PORT,
       path: '/account/submit?team_id=' + request.query.team_id,
       method: 'POST',
       headers: {
