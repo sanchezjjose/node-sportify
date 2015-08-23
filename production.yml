@@ -1,7 +1,8 @@
-sportify_app:
+node-sportify:
   extends:
     file: common.yml
-    service: sportify_app
+    service: node-sportify
+  command: node ./bin/www
   environment:
     - NODE_ENV=production
   links:

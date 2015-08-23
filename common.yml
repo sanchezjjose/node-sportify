@@ -1,4 +1,4 @@
-sportify_app:
+node-sportify:
   build: .
   container_name: node-sportify
   ports:

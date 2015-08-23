@@ -12,10 +12,16 @@ ADD package.json package.json
 RUN npm install
 
 
+RUN npm install -g \
+    gulp-cli \
+    browserify \
+    uglifyjs
+
+
 ADD . .
 
 
 EXPOSE 3000
 
 
-CMD ["node", "./bin/www"]
+# CMD ["node", "./bin/www"]

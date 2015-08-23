@@ -2,7 +2,6 @@
 'use strict';
 
 const React = require('react');
-const Sportify = require('./sportify');
 
 var HelloReact = {
 

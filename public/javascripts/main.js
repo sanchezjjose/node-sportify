@@ -2,6 +2,7 @@
 'use strict';
 
 const HelloReact = require('./hello_react');
+// const Sportify = require('./sportify');
 
 function onLoad() {
 

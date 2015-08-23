@@ -1,7 +1,8 @@
-sportify_app:
+node-sportify:
   extends:
     file: common.yml
-    service: sportify_app
+    service: node-sportify
+  command: npm start
   environment:
     - NODE_ENV=development
     - VIRTUAL_HOST=node.sportify.local

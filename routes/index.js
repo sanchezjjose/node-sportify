@@ -3,7 +3,7 @@ var router = express.Router();
 var http = require('http');
 var querystring = require('querystring');
 
-var sportifyClient = require('../public/javascripts/sportify.js');
+var sportifyClient = require('./sportify.js');
 var helper = require('./helper');
 
 router.get('/', helper.isAuthenticated, function(req, res) {
