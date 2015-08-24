@@ -2,28 +2,18 @@ node-sportify:
   extends:
     file: common.yml
     service: node-sportify
-  command: npm start
+  #command: npm start
   environment:
     - NODE_ENV=development
-    - VIRTUAL_HOST=node.sportify.local
-    - VIRTUAL_PORT=3000
   links:
     - sportify
+  volumes:
+    - ~/Code/node-sportify:/usr/src/app
 
 sportify:
   extends:
     file: common.yml
     service: sportify
-  environment:
-    - VIRTUAL_HOST=play.sportify.local
-    - VIRTUAL_PORT=9000
   volumes:
+    - ~/Code/sportify:/app
     - ~/.ivy2:/root/.ivy2
-  
-nginx:
-  container_name: nginx-proxy
-  image: jwilder/nginx-proxy
-  volumes:
-    - /var/run/docker.sock:/tmp/docker.sock
-  ports:
-    - "80:80"
