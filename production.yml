@@ -2,7 +2,7 @@ node-sportify:
   extends:
     file: common.yml
     service: node-sportify
-  command: node ./bin/www
+  command: node ./bin/www # this should probably use forever to ensure it keeps running
   environment:
     - NODE_ENV=production
   links:
