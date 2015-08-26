@@ -2,21 +2,6 @@
   "name": "application-name",
   "version": "0.0.1",
   "private": true,
-  "browserify": {
-    "transform": [
-      "babelify",
-      "aliasify",
-      "node-lessify",
-      [
-        "hbsfy",
-        {
-          "extensions": [
-            "hbs"
-          ]
-        }
-      ]
-    ]
-  },
   "scripts": {
     "server": "node ./bin/www",
     "start": "npm run build && npm run server",
@@ -45,22 +30,6 @@
     "static-favicon": "~1.0.0"
   },
   "devDependencies": {
-"aliasify": "^1.7.2",
-"babel": "^5.5.6",
-"babel-tape-runner": "^1.1.0",
-"babelify": "^6.1.2",
-"catw": "^0.2.0",
-"ghooks": "^0.3.2",
-"handlebars": "^3.0.3",
-"hbsfy": "^2.2.1",
-"jshint": "^2.8.0",
-"less": "^2.5.1",
-"node-lessify": "0.0.10",
-"tap-spec": "^4.0.2",
-"tape": "^4.0.0",
-"uglify-js": "^2.4.16",
-"watchify": "^2.2.1",
-
     "browserify": "^9.0.3",
     "connect-livereload": "^0.5.3",
     "gulp": "^3.8.11",
