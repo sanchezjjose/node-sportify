@@ -15,7 +15,7 @@ var HelloReact = {
 		 
 		React.render(
 		    React.createElement(Hello, {name: "From React"}),
-		    document.getElementById('container')
+		    document.getElementById('react-component')
 		);
 	}
 }
