@@ -10,7 +10,7 @@ function onLoad() {
   var linescoreComponent = g5Component({
       container: document.querySelector('.g5-component-linescore'),
       css: 'linescore linescore--game',
-      interval: 0,
+      enablePolling: false,
       path: '/javascripts/linescore.json'
   });
 
