@@ -2,11 +2,13 @@ node-sportify:
   extends:
     file: common.yml
     service: node-sportify
-  #command: npm start
+  command: gulp
   environment:
     - NODE_ENV=development
   links:
     - sportify
+  ports:
+    - "35729:35729" # livereload
   volumes:
     - ~/Code/node-sportify:/usr/src/app
 
