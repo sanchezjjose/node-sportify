@@ -1,0 +1,8 @@
+{
+  "_id" : NumberLong(111111),
+  "game_ids" : [
+    NumberLong(111111)
+  ],
+  "is_current_season" : true,
+  "title" : "Winter 2020"
+}

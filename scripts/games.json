@@ -1,0 +1,13 @@
+{
+  "_id" : NumberLong(111111),
+  "address" : "68th St. and Lexington Ave.",
+  "gym" : "Hunter College",
+  "is_playoff_game" : false,
+  "location_details" : "Game is on the 2nd Floor.",
+  "number" : 1,
+  "opponent" : "Test Opponent",
+  "players_in" : [ ],
+  "players_out" : [ ],
+  "result" : "",
+  "start_time" : "Wed 01/01/2020, 7:00 PM"
+}

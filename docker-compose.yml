@@ -16,6 +16,30 @@ sportify:
   extends:
     file: common.yml
     service: sportify
+  command: activator -Dconfig.file=/app/conf/development.conf run
+  environment:
+    - SPORTIFY_DB_NAME_DEV
+    - SPORTIFY_MONGO_URL_DEV
+  links:
+    - mongo
   volumes:
     - ~/Code/sportify:/app
     - ~/.ivy2:/root/.ivy2
+
+data:
+  command: echo mongo data volume created successfully
+  image: mongo:3.0.6
+  container_name: mongodata
+  volumes:
+    - /data/db
+
+mongo:
+  image: mongo:3.0.6
+  container_name: mongo
+  command: "--smallfiles"
+  mem_limit: 100MB
+  ports:
+    - "27017:27017"
+  #restart: always
+  volumes_from:
+    - data
