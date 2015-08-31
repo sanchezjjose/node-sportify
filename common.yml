@@ -16,4 +16,4 @@ sportify:
   image: sanchezjjose/sportify
   ports:
     - "9000:9000"
-  stdin_open: true # https://github.com/playframework/playframework/issues/4001
+

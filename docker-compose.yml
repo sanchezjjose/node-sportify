@@ -22,6 +22,7 @@ sportify:
     - SPORTIFY_MONGO_URL_DEV
   links:
     - mongo
+  stdin_open: true # https://github.com/playframework/playframework/issues/4001
   volumes:
     - ~/Code/sportify:/app
     - ~/.ivy2:/root/.ivy2
