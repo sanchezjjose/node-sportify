@@ -2,13 +2,15 @@ node-sportify:
   extends:
     file: common.yml
     service: node-sportify
-  command: node ./bin/www # this should probably use forever to ensure it keeps running
+  command: npm run start # this should probably use forever to ensure it keeps running
   environment:
     - NODE_ENV=production
   links:
     - sportify
+  restart: always
 
 sportify:
   extends:
     file: common.yml
     service: sportify
+  restart: always
