@@ -13,7 +13,8 @@ sportify:
     - SPORTIFY_SENDGRID_PASSWORD
     - SPORTIFY_FROM_EMAIL
     - SPORTIFY_TEST_EMAIL
+    - JAVA_OPTS
+    - SBT_OPTS
   image: sanchezjjose/sportify
   ports:
     - "9000:9000"
-

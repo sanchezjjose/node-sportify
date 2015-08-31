@@ -41,6 +41,5 @@ mongo:
   mem_limit: 100MB
   ports:
     - "27017:27017"
-  #restart: always
   volumes_from:
     - data
