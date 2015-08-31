@@ -24,4 +24,4 @@ ADD . .
 EXPOSE 3000
 
 
-CMD ["npm", "start"]
+CMD ["NODE_ENV=production", "npm", "start"]
