@@ -13,4 +13,5 @@ sportify:
   extends:
     file: common.yml
     service: sportify
+  command: activator -mem 512 start
   restart: always
