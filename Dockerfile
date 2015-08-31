@@ -15,7 +15,8 @@ RUN npm install
 RUN npm install -g \
     gulp-cli \
     browserify \
-    uglifyjs
+    uglifyjs \
+    less
 
 
 ADD . .
