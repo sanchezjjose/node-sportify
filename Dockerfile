@@ -16,7 +16,8 @@ RUN npm install -g \
     gulp-cli \
     browserify \
     uglifyjs \
-    less
+    less \
+    catw
 
 
 ADD . .
