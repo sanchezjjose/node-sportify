@@ -14,7 +14,7 @@ gulp.task('server', function() {
   	          'app.js'],
   	          server.notify);
 
-  // rebuild JS and Less
+  // run the js and less gulp tasks to rebuild bundles
   gulp.watch("public/stylesheets/*.less", ['less']);
   gulp.watch("public/javascripts/*.js", ['js']);
 
