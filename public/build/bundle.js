@@ -2,15 +2,15 @@
 
 'use strict';
 
-const HelloReact = require('./hello_react');
+const Game = require('./game');
 
 function onLoad() {
 
-	HelloReact.init();
+	Game.init({ next_game : "Tomorrow!" });
 }
 
 window.onload = onLoad;
-},{"./hello_react":157}],2:[function(require,module,exports){
+},{"./game":157}],2:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
@@ -19616,22 +19616,22 @@ module.exports = require('./lib/React');
 
 const React = require('react');
 
-var HelloReact = {
+var Game = {
 
-	init : function() {
+	init : function(next_game) {
 
-		var Hello = React.createClass({displayName: 'Hello',
-		    render: function() {
-		        return React.createElement("div", null, "Hello ", this.props.name);
-		    }
+		var NextGame = React.createClass({displayName: 'Next Game',
+	    render: function() {
+	      return React.createElement("div", null, "Next Game: ", this.props.name);
+	    }
 		});
 		 
 		React.render(
-		    React.createElement(Hello, {name: "From React"}),
-		    document.getElementById('container')
+	    React.createElement(NextGame, {name: next_game}),
+	    document.getElementById('container')
 		);
 	}
 }
 
-module.exports = HelloReact;
+module.exports = Game;
 },{"react":156}]},{},[1]);

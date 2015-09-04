@@ -1,19 +1,8 @@
 {
-  "_id" : NumberLong(222222),
-  "name" : "Ping Kings",
-  "player_ids" : [ ],
-  "season_ids" : [ ],
-  "sport" : {
-    "name" : "Ping Pong",
-    "_id" : NumberLong(222222),
-    "logo_image_url" : "images/ping-pong-icon.png"
-  }
-}
-{
   "_id" : NumberLong(111111),
   "name" : "Knicks Tape",
   "player_ids" : [
-    NumberLong(542604)
+    NumberLong(111111)
   ],
   "season_ids" : [
     NumberLong(111111)
@@ -24,4 +13,19 @@
     "logo_image_url" : "images/basketball-icon-2.png"
   },
   "selected" : false
+}
+{
+  "_id" : NumberLong(222222),
+  "name" : "Ping Kings",
+  "player_ids" : [ 
+    NumberLong(111111)
+  ],
+  "season_ids" : [ 
+    NumberLong(222222)
+  ],
+  "sport" : {
+    "name" : "Ping Pong",
+    "_id" : NumberLong(222222),
+    "logo_image_url" : "images/ping-pong-icon.png"
+  }
 }

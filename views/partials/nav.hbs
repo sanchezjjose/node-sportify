@@ -2,17 +2,19 @@
   <div class='nav-content'>
     <div class='nav-main'>
 	  <ul class='nav-list'>
-	    <li class='nav-tab nav-tab-logo'><a class='nav-tab-link' href='/team/{{selected_team_id}}'>Sportify</a></li>
-	  	<li class='nav-tab nav-tab-home'><a class='nav-tab-link' href='/team/{{selected_team_id}}'>Home</a></li>
-	  	<li class='nav-tab nav-tab-schedule'><a class='nav-tab-link' href='/team/{{selected_team_id}}/schedule'>Schedule</a></li>
-	  	<li class='nav-tab nav-tab-roster'><a class='nav-tab-link' href='/team/{{selected_team_id}}/roster'>Roster</a></li>
-	  	<li class='nav-tab nav-tab-account'><a class='nav-tab-link' href='/account?team_id={{selected_team_id}}'>Account</a></li>
+	    <li class='nav-tab nav-tab-logo'><a class='nav-tab-link' href='/team/{{teams.current._id}}'>Sportify</a></li>
+	  	<li class='nav-tab nav-tab-home'><a class='nav-tab-link' href='/team/{{teams.current._id}}'>Home</a></li>
+	  	<li class='nav-tab nav-tab-schedule'><a class='nav-tab-link' href='/team/{{teams.current._id}}/schedule'>Schedule</a></li>
+	  	<li class='nav-tab nav-tab-roster'><a class='nav-tab-link' href='/team/{{teams.current._id}}/roster'>Roster</a></li>
+	  	<li class='nav-tab nav-tab-account'><a class='nav-tab-link' href='/account?team_id={{teams.current._id}}'>Account</a></li>
 	  </ul>
 	</div>
 	 
   <ul class='nav-teams-dropdown'>
-    {{#each teams}}
-      <a href='/team/{{_id}}'>{{name}}</a>    
+    {{#each teams.other}}
+      <li>
+        <a href='/team/{{_id}}'>{{name}}</a>   
+      </li> 
     {{/each}}
   </ul> 
  

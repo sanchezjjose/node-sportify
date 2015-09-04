@@ -1,11 +1,11 @@
 
 'use strict';
 
-const HelloReact = require('./hello_react');
+const Game = require('./game');
 
 function onLoad() {
 
-	HelloReact.init();
+	Game.init({ next_game : "Tomorrow!" });
 }
 
 window.onload = onLoad;
