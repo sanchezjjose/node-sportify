@@ -11,41 +11,19 @@
 
 
 <ul class='players-in'>
+  Players In:
   {{#each players_in}}
     <li> {{first_name}} {{last_name}} </li>   
   {{/each}}
 </ul> 
 
+<ul class='players-out'>
+  Players Out:
+  {{#each players_out}}
+    <li> {{first_name}} {{last_name}} </li>   
+  {{/each}}
+</ul>
+
 <div id="container">
   <!-- THIS ELEMENT IS REPLACED BY THE REACT COMPONENT -->
 </div>
-
-{{!-- 
-
-
-                   { teams:
-node-sportify_1 |    { selected_team_id: 111111,
-node-sportify_1 |      current:
-node-sportify_1 |       { _id: 111111,
-node-sportify_1 |         name: 'Knicks Tape',
-node-sportify_1 |         player_ids: [Object],
-node-sportify_1 |         seasons: [Object],
-node-sportify_1 |         sport: [Object],
-node-sportify_1 |         selected: true },
-node-sportify_1 |      other: [ [Object] ] },
-node-sportify_1 |   next_game:
-node-sportify_1 |    { _id: 111111,
-node-sportify_1 |      number: 1,
-node-sportify_1 |      start_time: 'Wed 01/01/2020, 7:00 PM',
-node-sportify_1 |      address: '68th St. and Lexington Ave.',
-node-sportify_1 |      gym: 'Hunter College',
-node-sportify_1 |      location_details: 'Game is on the 2nd Floor.',
-node-sportify_1 |      opponent: 'Test Opponent',
-node-sportify_1 |      result: '',
-node-sportify_1 |      players_in: [],
-node-sportify_1 |      players_out: [],
-node-sportify_1 |      is_playoff_game: false },
-node-sportify_1 |   players_in: [],
-node-sportify_1 |   players_out: [] }
-
- --}}

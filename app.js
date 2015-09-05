@@ -77,5 +77,10 @@ app.use(function(err, req, res, next) {
   });
 });
 
+// TODO: replace with forever.js -- http://stackoverflow.com/questions/8114977/recover-from-uncaught-exception-in-node-js
+process.on('uncaughtException', function(err) {
+  console.log("Uncaught exception!", err);
+});
+
 
 module.exports = app;

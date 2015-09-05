@@ -1,1 +1,15 @@
-SCHEDULE PAGE!
+<h1>{{current_season.title}}</h1>
+
+<div class="games">
+  {{#each games}}
+    <div class="game">
+      <div> id: {{_id}} </div> 
+      <div> number: {{number}} </div>
+      <div> address: {{address}} </div>
+      <div> gym: {{gym}} </div>
+      <div> location: {{location_details}} </div>
+      <div> opponent: {{opponent}} </div>
+      <div> result: {{result}} </div>
+    </div>
+  {{/each}}
+</div>

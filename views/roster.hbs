@@ -1,5 +1,16 @@
 
 <h1>Roster.</h1>
+  
+<h2>{{teams.current.name}}</h2>
 
-Team Name:   
-<h2>{{current.name}}</h2>
+<div class="roster">
+  <div>
+    {{#each players}}
+      <span>{{id}}</span> | 
+      <span>{{name}}</span> | 
+      <span>{{number}}</span> | 
+      <span>{{phoneNumber}}</span> | 
+      <span>{{position}}</span> | 
+    {{/each}}
+  </div>
+</div>
