@@ -3,16 +3,11 @@
   <body>
     {{>nav}}
     <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          {{{ body }}}
-        </div>
-      </div>
+      {{{ body }}}
     </div>
     {{>footer}}
+
+    <script src="/build/bundle.js"></script>
+  
   </body>
-
-  <!-- bundled JS -->
-  <script src="/build/bundle.js"></script>
-
 </html>

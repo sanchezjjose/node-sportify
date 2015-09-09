@@ -1,11 +1,10 @@
 
 'use strict';
 
-const Game = require('./game');
+const Rsvp = require('./rsvp');
+const $ = require('jquery');
 
-function onLoad() {
+$(function() {
 
-	Game.init({ next_game : "Tomorrow!" });
-}
-
-window.onload = onLoad;
+  Rsvp.init($);
+});

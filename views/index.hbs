@@ -3,6 +3,10 @@
 
 <h2>{{teams.current.name}} vs {{next_game.opponent}}</h2>
 
+<p>
+  {{>rsvp}}
+</p>
+
 <p> Game Number: {{next_game.number}} </p>
 <p> Start Time: {{next_game.start_time}} </p>
 <p> Address: {{next_game.address}} </p>
@@ -24,6 +28,3 @@
   {{/each}}
 </ul>
 
-<div id="container">
-  <!-- THIS ELEMENT IS REPLACED BY THE REACT COMPONENT -->
-</div>

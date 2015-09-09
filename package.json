@@ -20,10 +20,10 @@
     "start": "npm run build && npm run server-prod",
     "start-dev": "npm run server-dev & npm run watch",
     "build-js": "browserify public/javascripts/main.js | uglifyjs -mc > public/build/bundle.js",
-    "build-css": "lessc public/stylesheets/style.less > public/build/style.css",
+    "build-css": "lessc public/stylesheets/main.less > public/build/bundle.css",
     "build": "npm run build-js && npm run build-css",
     "watch-js": "watchify public/javascripts/main.js -o public/build/bundle.js -dv",
-    "watch-css": "catw -w -c 'lessc -' 'public/stylesheets/style.less' -o public/build/style.css -v",
+    "watch-css": "catw -w -c 'lessc -' 'public/stylesheets/main.less' -o public/build/bundle.css -v",
     "watch": "npm run watch-js & npm run watch-css"
   },
   "dependencies": {
@@ -35,9 +35,9 @@
     "express-handlebars": "^2.0.1",
     "express-session": "^1.11.2",
     "jade": "~1.3.0",
+    "jquery": "~2.1.4",
     "morgan": "~1.0.0",
     "querystring": "^0.2.0",
-    "react": "^0.13.3",
     "static-favicon": "~1.0.0"
   },
   "devDependencies": {
