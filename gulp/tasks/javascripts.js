@@ -18,7 +18,7 @@ gulp.task('uglify-js', function() {
   return bundleStream
     .pipe(source(BASE))
     .pipe(print())
-    // .pipe(streamify(uglify())) // getting o is not defined when trying to use 'React'
+    .pipe(streamify(uglify()))
     .pipe(rename(BASE_MINIFIED))
     .pipe(gulp.dest(DEST_DIR))
     .pipe(print());

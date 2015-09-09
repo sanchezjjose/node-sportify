@@ -1,14 +1,24 @@
 
 'use strict';
 
+// var sportifyClient = require('sportify');
+
 var Rsvp = {
 
   init : function($) {
 
-    $('.rsvp a').click(function(ev) {
-      ev.preventDefault();
+    $.ajax({
+        url: "http://localhost:9000/team/111111/game/rsvp?status=in&game_id=111111",
 
-      console.log(this.className);
+        success: function (data) {
+          
+          if (data.status === 'in') {
+            $('h1:first-child').before('<div class="message alert alert-info">'+data.msg+'</div>');
+          
+          } else {
+            $('h1:first-child').before('<div class="message alert alert-danger" >'+data.msg+'</div>');
+          }
+        }
     });
   }
 }
