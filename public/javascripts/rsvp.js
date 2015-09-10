@@ -8,7 +8,7 @@ var Rsvp = {
   init : function($) {
 
     $.ajax({
-        url: "http://localhost:9000/team/111111/game/rsvp?status=in&game_id=111111",
+        url: $(this).attr('href'),
 
         success: function (data) {
           
