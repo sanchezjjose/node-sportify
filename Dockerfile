@@ -1,4 +1,4 @@
-FROM node:0.12.4
+FROM node:4.0.0
 MAINTAINER Jose Sanchez <Jose.Sanchez@mlb.com>
 
 
