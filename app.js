@@ -37,8 +37,13 @@ if (app.get('env') === 'development') {
   app.use(require('connect-livereload')());
 }
 
+app.locals.isDev = process.env.NODE_ENV == 'development'
+
 // app.use(helper.getUserContext);
-app.get('/', function(req, res) { res.redirect('/login'); });
+app.get('/', function(req, res) { 
+  res.redirect('/login'); 
+});
+
 app.use('/', login);
 app.use('/', signup);
 app.use('/', account);
@@ -81,6 +86,5 @@ app.use(function(err, req, res, next) {
 process.on('uncaughtException', function(err) {
   console.log("Uncaught exception!", err);
 });
-
 
 module.exports = app;
