@@ -55,7 +55,6 @@
     "handlebars": "^3.0.3",
     "hbsfy": "^2.2.1",
     "require-dir": "^0.3.0",
-    "tiny-lr": "^0.1.5",
     "vinyl-source-stream": "^1.1.0",
     "vinyl-transform": "^1.0.0",
     "watchify": "^2.2.1"
