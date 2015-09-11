@@ -5,6 +5,7 @@ gulp.task('server', function() {
   var server = gls('bin/www', { env: { NODE_ENV: 'development' }});
   server.start();
   
+  // restart browser when these files change
   gulp.watch(['app.js',
               'routes/*.js',
               'public/javascripts/*.js',
@@ -15,10 +16,6 @@ gulp.task('server', function() {
               function (file) {
                 server.notify.apply(server, [file]);
               });
-
-  // run the js and less gulp tasks to rebuild bundles
-  gulp.watch("public/stylesheets/*.less", ['less']);
-  gulp.watch("public/javascripts/*.js", ['js']);
 
   // restart if server side files are changed
   gulp.watch('app.js', function() { server.start() });

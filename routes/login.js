@@ -6,7 +6,7 @@ var querystring = require('querystring');
 var sportifyClient = require('./sportify.js');
 
 router.get('/login', function(req, res) {
-  res.render('login', { title: 'Login', layout: 'login_reg' });
+  res.render('login', { title: 'Login', layout: 'login_reg', isDev: process.env.NODE_ENV == 'development' });
 })
 
 router.get('/logout', function(req, res) {

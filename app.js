@@ -31,11 +31,11 @@ app.use(session({ name: 'NODE_SPORTIFY_SESSION',
                   resave: false }));
 app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 if (app.get('env') === 'development') {
   app.use(require('connect-livereload')());
 }
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(helper.getUserContext);
 app.get('/', function(req, res) { res.redirect('/login'); });

@@ -4,5 +4,14 @@
     <div class="container login-reg">
       {{{ body }}}
     </div>
+
+    {{#if isDev}}
+      <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+      <script src="/javascripts/rsvp.js"></script>
+      <script src="/javascripts/main.js"></script>
+    {{else}}
+      <script src="/build/bundle.js"></script>
+    {{/if}}
+    
   </body>
 </html>
