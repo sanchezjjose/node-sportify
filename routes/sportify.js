@@ -56,7 +56,28 @@ var Sportify = {
         'Cookie' : request.cookies.PLAY_SPORTIFY_SESSION
       }
     };
+  },
+
+  gameRsvp : function(request, data) {
+    console.log("ZZZZZZ");
+    console.log(request.originalUrl);
+    console.log(data);
+
+    return {
+      host: config.SPORTIFY_SERVICE_HOST,
+      port: config.SPORTIFY_SERVICE_PORT,
+      path: '/v2' + request.originalUrl,
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Transfer-Encoding' :'chunked',
+        'Cookie' : request.cookies.PLAY_SPORTIFY_SESSION + 
+                   "; rsvp_status=" + data.rsvp_status + 
+                   "; team_id=" + data.team_id
+      }
+    };
   }
 };
 
 module.exports = Object.create(Sportify);
+ 

@@ -1,4 +1,5 @@
+
 <div class="next-game rsvp">
-    <a href="/team/{{teams.current._id}}/game/rsvp?status=in&game_id={{next_game._id}}" class="btn btn-primary">In</a>
-    <a href="/team/{{teams.current._id}}/game/rsvp?status=out&game_id={{next_game._id}}" class="btn btn-default">Out</a>
+    <a href="/games/{{next_game._id}}" data-status="in" data-team-id="{{teams.current._id}}" class="btn btn-primary">In</a>
+    <a href="/games/{{next_game._id}}" data-status="out" data-team-id="{{teams.current._id}}" class="btn btn-default">Out</a>
 </div>
