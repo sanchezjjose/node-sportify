@@ -9,7 +9,7 @@ var helper = require('./helper');
 router.post('/', helper.isAuthenticated, function(req, res) {
   var data = req.body;
 
-  var postReq = http.request(sportifyClient.gameRsvp(req, data), function(response) {
+  var postReq = http.request(sportifyClient.rsvp(req, data), function(response) {
     var body = '';
 
     response.on('data', function(chunk) {
@@ -17,13 +17,8 @@ router.post('/', helper.isAuthenticated, function(req, res) {
     });
 
     response.on('end', function() {
-      console.log("Response Body: ");
-      console.log(body);
-      console.log("Response Headers: ");
-      console.log(response.headers);
-
-      // TODO: send back JSON if using AJAX
-      res.redirect(response.headers.location);
+      res.status(response.statusCode);
+      res.render('index', JSON.parse(body));
     });
 
   }).on('error', function(e) {

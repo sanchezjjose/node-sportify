@@ -43,6 +43,7 @@
   "devDependencies": {
     "browserify": "^9.0.3",
     "connect-livereload": "^0.5.3",
+    "forever-monitor": "^1.6.0",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.2",
     "gulp-live-server": "^0.0.28",

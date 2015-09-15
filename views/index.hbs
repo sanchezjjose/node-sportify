@@ -1,29 +1,39 @@
 
 <h1>Home Page</h1>
 
-<h2>{{teams.current.name}} vs {{next_game.opponent}}</h2>
+{{#if next_game}}
 
-<p>
-  {{>rsvp}}
-</p>
+  <h2>{{teams.current.name}} vs {{next_game.opponent}}</h2>
 
-<p> Game Number: {{next_game.number}} </p>
-<p> Start Time: {{next_game.start_time}} </p>
-<p> Address: {{next_game.address}} </p>
-<p> Gym: {{next_game.gym}} </p>
-<p> Location Details: {{next_game.location_details}} </p>
+  <p>
+    {{>rsvp}}
+  </p>
+
+  <p> Game Number: {{next_game.number}} </p>
+  <p> Start Time: {{next_game.start_time}} </p>
+  <p> Address: {{next_game.address}} </p>
+  <p> Gym: {{next_game.gym}} </p>
+  <p> Location Details: {{next_game.location_details}} </p>
 
 
-<ul class='players-in'>
-  Players In:
-  {{#each players_in}}
-    <li> {{first_name}} {{last_name}} </li>   
-  {{/each}}
-</ul> 
+  <ul class='players-in'>
+    Players In:
+    {{#each players_in}}
+      <li> {{first_name}} {{last_name}} </li>   
+    {{/each}}
+  </ul> 
 
-<ul class='players-out'>
-  Players Out:
-  {{#each players_out}}
-    <li> {{first_name}} {{last_name}} </li>   
-  {{/each}}
-</ul>
+  <ul class='players-out'>
+    Players Out:
+    {{#each players_out}}
+      <li> {{first_name}} {{last_name}} </li>   
+    {{/each}}
+  </ul>
+
+{{else}}
+
+  <h2>No Upcoming Games Scheduled.</h2>
+
+{{/if}}
+
+

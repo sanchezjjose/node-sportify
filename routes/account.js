@@ -16,7 +16,14 @@ router.get('/account', helper.isAuthenticated, function(req, res) {
     });
 
     response.on('end', function() {
-      res.render('account', JSON.parse(body));
+      
+      try {
+        res.render('account', JSON.parse(body));
+
+      } catch(e) {
+        res.status(404).send('Page not found.');
+      }
+
     });
 
   }).on('error', function(e) {

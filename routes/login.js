@@ -32,7 +32,8 @@ router.post('/login', function(req, res) {
 	      res.redirect(response.headers.location);
 	      
 	    } else {
-	      res.render('login', { title: 'Login', layout: 'login_reg' }); // TODO: send error back to client
+	      res.status(response.statusCode)
+          .render('login', { title: 'Login', layout: 'login_reg', unauthorized: true });
       }
     });
 

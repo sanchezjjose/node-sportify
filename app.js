@@ -17,7 +17,6 @@ var game = require('./routes/game');
 var app = module.exports.app = exports.app = express();
 var exphbs = require('express-handlebars');
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
@@ -40,9 +39,16 @@ if (app.get('env') === 'development') {
 
 app.locals.isDev = process.env.NODE_ENV == 'development'
 
+// var helper = require('./routes/helper');
 // app.use(helper.getUserContext);
-app.get('/', function(req, res) { 
-  res.redirect('/login'); 
+
+app.get('/', function(req, res) {
+  if (req.cookies.PLAY_SPORTIFY_SESSION && req.session.teamId) {
+    res.redirect('/team/' + req.session.teamId);
+
+  } else {
+    res.redirect('/login');  
+  } 
 });
 
 app.use('/', login);
@@ -53,17 +59,18 @@ app.use('/team/:id', roster);
 app.use('/team/:id', schedule);
 app.use('/games/:id', game);
 
-/// catch 404 and forwarding to error handler
+// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-/// error handlers
 
-// development error handler
-// will print stacktrace
+// ---- error handlers ----- \\
+
+
+// prints stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -74,7 +81,6 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
@@ -82,11 +88,6 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
-});
-
-// TODO: replace with forever.js -- http://stackoverflow.com/questions/8114977/recover-from-uncaught-exception-in-node-js
-process.on('uncaughtException', function(err) {
-  console.log("Uncaught exception!", err);
 });
 
 module.exports = app;

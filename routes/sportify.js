@@ -58,11 +58,8 @@ var Sportify = {
     };
   },
 
-  gameRsvp : function(request, data) {
-    console.log("ZZZZZZ");
-    console.log(request.originalUrl);
-    console.log(data);
-
+  rsvp : function(request, data) {
+    
     return {
       host: config.SPORTIFY_SERVICE_HOST,
       port: config.SPORTIFY_SERVICE_PORT,
@@ -70,9 +67,10 @@ var Sportify = {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept' : 'application/json',
         'Transfer-Encoding' :'chunked',
         'Cookie' : request.cookies.PLAY_SPORTIFY_SESSION + 
-                   "; rsvp_status=" + data.rsvp_status + 
+                   "; rsvp=" + data.rsvp + 
                    "; team_id=" + data.team_id
       }
     };

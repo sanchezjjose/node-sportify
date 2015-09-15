@@ -16,7 +16,15 @@ router.get('/', helper.isAuthenticated, function(req, res) {
     });
 
     response.on('end', function() {
-      res.render('index', JSON.parse(body));
+
+      try {
+        var bodyJson = JSON.parse(body);
+        req.session.teamId = bodyJson.teams.current._id;
+        res.render('index', bodyJson);
+
+      } catch(e) {
+        res.status(404).send('Team page not found.');
+      }
     });
 
   }).on('error', function(e) {
