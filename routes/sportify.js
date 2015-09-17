@@ -63,7 +63,7 @@ var Sportify = {
     return {
       host: config.SPORTIFY_SERVICE_HOST,
       port: config.SPORTIFY_SERVICE_PORT,
-      path: '/v2' + request.originalUrl,
+      path: request.originalUrl,
       method: 'PUT',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
