@@ -16,7 +16,15 @@ router.get('/schedule', helper.isAuthenticated, function(req, res) {
     });
 
     response.on('end', function() {
-      res.render('schedule', JSON.parse(body));
+
+      try {
+        var bodyJson = JSON.parse(body);
+        req.session.teamId = bodyJson.teams.current._id;
+        res.render('schedule', bodyJson);
+        
+      } catch(e) {
+        res.status(404).send('Error occurred.');
+      }      
     });
 
   }).on('error', function(e) {

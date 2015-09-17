@@ -27,6 +27,7 @@ router.post('/signup' ,function(req, res) {
 	      res.redirect(response.headers.location);
 	      
 	    } else {
+        res.status(response.statusCode);
 	      res.render('signup', { title: 'Signup', layout: 'login_reg' }); // TODO: send error back to client
       }
     });

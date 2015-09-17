@@ -16,14 +16,15 @@ router.get('/account', helper.isAuthenticated, function(req, res) {
     });
 
     response.on('end', function() {
-      
+
       try {
-        res.render('account', JSON.parse(body));
-
+        var bodyJson = JSON.parse(body);
+        req.session.teamId = bodyJson.teams.current._id;
+        res.render('account', bodyJson);
+        
       } catch(e) {
-        res.status(404).send('Page not found.');
+        res.status(404).send('Error occurred.');
       }
-
     });
 
   }).on('error', function(e) {

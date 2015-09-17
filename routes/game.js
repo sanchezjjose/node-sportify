@@ -17,8 +17,15 @@ router.post('/', helper.isAuthenticated, function(req, res) {
     });
 
     response.on('end', function() {
-      res.status(response.statusCode);
-      res.render('index', JSON.parse(body));
+
+      try {
+        var bodyJson = JSON.parse(body);
+        res.status(response.statusCode);
+        res.render('index', bodyJson);
+        
+      } catch(e) {
+        res.status(404).send('Error occurred.');
+      }
     });
 
   }).on('error', function(e) {

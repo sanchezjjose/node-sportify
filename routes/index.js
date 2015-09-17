@@ -23,7 +23,7 @@ router.get('/', helper.isAuthenticated, function(req, res) {
         res.render('index', bodyJson);
 
       } catch(e) {
-        res.status(404).send('Team page not found.');
+        res.status(404).send('Error occurred.');
       }
     });
 

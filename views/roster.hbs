@@ -4,13 +4,13 @@
 <h2>{{teams.current.name}}</h2>
 
 <div class="roster">
-  <div>
-    {{#each players}}
+  {{#each players}}
+    <div>
       <span>{{id}}</span> | 
       <span>{{name}}</span> | 
       <span>{{number}}</span> | 
       <span>{{phoneNumber}}</span> | 
-      <span>{{position}}</span> | 
-    {{/each}}
-  </div>
+      <span>{{position}}</span>
+    </div>
+  {{/each}}
 </div>
