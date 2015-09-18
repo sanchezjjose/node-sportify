@@ -6,42 +6,42 @@
       <fieldset>
         <legend>Account Information</legend>
 
-				<div class="" id="email_field">
+				<div class='email'>
 					<label for="email">Email</label>
 					<div class="input">
 						<input type="text" id="email" name="email" value="{{email}}">
 					</div>
 				</div>
 
-				<div class="" id="password_field">
+				<div class='password'>
 					<label for="password">Password</label>
 					<div class="input">
 						<input type="password" id="password" name="password">
 					</div>
 				</div>
 
-				<div class="" id="first_name_field">
+				<div class='first_name'>
 					<label for="first_name">First Name</label>
 					<div class="input">
 						<input type="text" id="first_name" name="first_name" value="{{first_name}}">
 					</div>
 				</div>
 
-				<div class="" id="last_name_field">
+				<div class='last_name'>
 					<label for="last_name">Last Name</label>
 					<div class="input">
 						<input type="text" id="last_name" name="last_name" value="{{last_name}}">
 					</div>
 				</div>
 
-				<div class="" id="number_field">
+				<div class='number'>
 					<label for="number">Jersey Number</label>
 					<div class="input">
 						<input type="text" id="number" name="number" value="{{number}}">
 					</div>
 				</div>
 
-				<div class="" id="phone_number_field">
+				<div class='phone_number'>
 					<label for="phone_number">Phone Number</label>
 					<div class="input">
 						<input type="text" id="phone_number" name="phone_number" value="{{phone_number}}">
@@ -49,11 +49,10 @@
 					</div>
 				</div>
 
-			  <div class="hidden clearfix" id="position_field">
+			  <div class='position'>
 		      <label for="position">Position</label>
 		      <div class="input">
-			      <select class="form-control" id="position" name="position">
-		          <option class="blank" value="">{{position}}</option>
+			      <select name="position" data-current-position={{position}}>
 		          <option value="PG">PG</option>
 		          <option value="SG">SG</option>
 		          <option value="SF">SF</option>
@@ -65,13 +64,9 @@
 
 			  <label>Admin?</label>
 			  <input name="is_admin" value="{{is_admin}}" type="checkbox" disabled="" checked="">
-
 			</fieldset>
 
-			<div class="actions">
-			  <input type="submit" class="btn btn-primary" value="Save">
-			  <a href="/" class="btn btn-default">Cancel</a>
-			</div>
+			<input type="submit" class="btn btn-primary" value="Save">
 
 		</div>
 	</form>
