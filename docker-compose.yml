@@ -9,7 +9,7 @@ node-sportify:
     - sportify
   ports:
     - "35729:35729" # livereload
-  restart: always
+  #restart: always
   volumes:
     - ~/Code/node-sportify:/usr/src/app
 
@@ -23,7 +23,7 @@ sportify:
     - SPORTIFY_MONGO_URL_DEV
   links:
     - mongo
-  restart: always
+  #restart: always
   stdin_open: true # https://github.com/playframework/playframework/issues/4001
   volumes:
     - ~/Code/sportify:/app
@@ -43,6 +43,6 @@ mongo:
   mem_limit: 100MB
   ports:
     - "27017:27017"
-  restart: always
+  #restart: always
   volumes_from:
     - data
