@@ -23,7 +23,7 @@
     $('.next-game.rsvp a').click(function (ev) {
       ev.preventDefault();
 
-      var url = '/games/' + $(this).data("game-id"),
+      var url = '/rsvp/player/' + $(this).data("player-id") + '/game/' + $(this).data("game-id"),
           rsvp = $(this).data("rsvp"),
           teamId = $(this).data("team-id");
 

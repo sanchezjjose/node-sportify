@@ -19,7 +19,7 @@ router.get('/roster', helper.isAuthenticated, function(req, res) {
 
       try {
         var bodyJson = JSON.parse(body);
-        req.session.teamId = bodyJson.teams.current._id;
+        req.session.teamId = bodyJson.active_team._id;
         res.render('roster', bodyJson);
         
       } catch(e) {

@@ -12,7 +12,7 @@ var signup = require('./routes/signup');
 var roster = require('./routes/roster');
 var schedule = require('./routes/schedule');
 var account = require('./routes/account');
-var game = require('./routes/game');
+var rsvp = require('./routes/rsvp');
 
 var app = module.exports.app = exports.app = express();
 var exphbs = require('express-handlebars');
@@ -57,7 +57,7 @@ app.use('/', account);
 app.use('/team/:id', home);
 app.use('/team/:id', roster);
 app.use('/team/:id', schedule);
-app.use('/games/:id', game);
+app.use('/rsvp/player/:id/game/:id', rsvp);
 
 // catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

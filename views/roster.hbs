@@ -1,7 +1,7 @@
 
 <h1>Roster.</h1>
   
-<h2>{{teams.current.name}}</h2>
+<h2>{{active_team.name}}</h2>
 
 <div class="roster">
   {{#each players}}
@@ -9,7 +9,7 @@
       <span>{{id}}</span> | 
       <span>{{name}}</span> | 
       <span>{{number}}</span> | 
-      <span>{{phoneNumber}}</span> | 
+      <span>{{phone_number}}</span> | 
       <span>{{position}}</span>
     </div>
   {{/each}}
