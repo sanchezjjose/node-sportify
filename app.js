@@ -13,6 +13,7 @@ var roster = require('./routes/roster');
 var schedule = require('./routes/schedule');
 var account = require('./routes/account');
 var rsvp = require('./routes/rsvp');
+var sandbox = require('./routes/sandbox');
 
 var app = module.exports.app = exports.app = express();
 var exphbs = require('express-handlebars');
@@ -54,6 +55,7 @@ app.get('/', function(req, res) {
 app.use('/', login);
 app.use('/', signup);
 app.use('/', account);
+app.use('/', sandbox);
 app.use('/team/:id', home);
 app.use('/team/:id', roster);
 app.use('/team/:id', schedule);

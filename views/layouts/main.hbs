@@ -1,16 +1,22 @@
+<!DOCTYPE html>
 <html>
   {{>head}}
   <body>
-    {{>nav}}
     <div class="container">
-      {{{ body }}}
-    </div>
-    {{>footer}}
+      {{>nav}}
 
+      <div class="content">
+        {{{ body }}}
+      </div>
+
+      {{>footer}}
+    </div>
+    
     {{#if isDev}}
       <script src="/dist/jquery-2.1.4.js"></script>
       <script src="/javascripts/rsvp.js"></script>
       <script src="/javascripts/signup.js"></script>
+      <script src="/javascripts/maps.js"></script>
       <script src="/javascripts/main.js"></script>
     {{else}}
       <script src="/build/bundle.js"></script>

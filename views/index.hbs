@@ -16,19 +16,21 @@
   <p> Location Details: {{next_game.location_details}} </p>
 
 
+  Players In:
   <ul class='players-in'>
-    Players In:
     {{#each players_in}}
       <li> {{full_name}} </li>   
     {{/each}}
   </ul> 
 
+  Players Out:
   <ul class='players-out'>
-    Players Out:
     {{#each players_out}}
       <li> {{full_name}} </li>   
     {{/each}}
   </ul>
+
+  <div id="map"></div>
 
 {{else}}
 
