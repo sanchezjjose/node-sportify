@@ -18,25 +18,27 @@
 
 }(this, function () {
 
+  var GOOGLE_MAPS_API_BROWSER_KEY = 'AIzaSyAe9xxu11QhrhOX_8EymymNWnu3clXTvRY';
+
   // TODO: why is this defined outside?
   var map;
   function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 8
+    var mapElement = document.getElementById('map'),
+        latitude = parseFloat(mapElement.dataset.latitude),
+        longitude = parseFloat(mapElement.dataset.longitude);
+
+    map = new google.maps.Map(mapElement, {
+      center: {lat: latitude, lng: longitude},
+      zoom: 14
     });
   }
 
   function init() {
-
-    // TODO: move to a config file
-    var googleMapsAPIKey = "AIzaSyAe9xxu11QhrhOX_8EymymNWnu3clXTvRY";
-
     window.initMap = initMap;
 
     // By default this is loading asynchronously
     var script = document.createElement("script");
-    script.src = "https://maps.googleapis.com/maps/api/js?key=" + googleMapsAPIKey + "&callback=initMap";
+    script.src = "https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_MAPS_API_BROWSER_KEY + "&callback=initMap";
     document.body.appendChild(script);
   }
 
