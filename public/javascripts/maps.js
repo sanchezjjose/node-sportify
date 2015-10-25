@@ -20,16 +20,47 @@
 
   var GOOGLE_MAPS_API_BROWSER_KEY = 'AIzaSyAe9xxu11QhrhOX_8EymymNWnu3clXTvRY';
 
-  // TODO: why is this defined outside?
-  var map;
   function initMap() {
-    var mapElement = document.getElementById('map'),
-        latitude = parseFloat(mapElement.dataset.latitude),
-        longitude = parseFloat(mapElement.dataset.longitude);
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var mapElement = document.getElementById('map');
+    var latitude = parseFloat(mapElement.dataset.latitude);
+    var longitude = parseFloat(mapElement.dataset.longitude);
 
-    map = new google.maps.Map(mapElement, {
+    var map = new google.maps.Map(mapElement, {
       center: {lat: latitude, lng: longitude},
       zoom: 14
+    });
+
+    directionsDisplay.setMap(map);
+
+    var onClickHandler = function() {
+      var origin = document.querySelectorAll('.directions-origin input')[0].value;
+      var destination = mapElement.dataset.address;
+
+      displayRoute(directionsDisplay, directionsService, origin, destination);
+
+      var googleMapsExternalLink = document.querySelectorAll('.directions-google-maps a')[0];
+      googleMapsExternalLink.href = 'https://www.google.com/maps/dir/' + origin + '/' + destination;
+    }
+
+    document.querySelectorAll('.directions-origin button')[0].addEventListener('click', onClickHandler);
+  }
+
+  function displayRoute(directionsDisplay, directionsService, origin, destination) {
+
+    directionsService.route({
+      origin: origin,
+      destination: destination,
+      travelMode: google.maps.TravelMode.TRANSIT
+
+    }, function(response, status) {
+      if (status === google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
     });
   }
 

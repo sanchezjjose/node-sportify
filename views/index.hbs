@@ -30,6 +30,16 @@
     {{/each}}
   </ul>
 
+  <div class='directions-google-maps'>
+    <a target="_blank" href='https://www.google.com/maps/place/{{next_game.address}}'>See Directions in Google Maps</a>
+  </div>
+
+  <div class='directions-origin'>
+    <label>Origin: </label>
+    <input placeholder='e.g., 75 9th Avenue, New York, NY'></input>
+    <button>Get Directions</button>
+  </div>
+
   <div id="map" data-address="{{next_game.address}}" data-latitude={{lat}} data-longitude={{lng}} ></div>
 
 {{else}}
