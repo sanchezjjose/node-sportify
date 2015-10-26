@@ -26,10 +26,17 @@
     var mapElement = document.getElementById('map');
     var latitude = parseFloat(mapElement.dataset.latitude);
     var longitude = parseFloat(mapElement.dataset.longitude);
+    var latLng = { lat: latitude, lng: longitude };
 
     var map = new google.maps.Map(mapElement, {
-      center: {lat: latitude, lng: longitude},
+      center: latLng,
       zoom: 14
+    });
+
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: map,
+      animation: google.maps.Animation.DROP
     });
 
     directionsDisplay.setMap(map);
