@@ -30,7 +30,8 @@
 
     var map = new google.maps.Map(mapElement, {
       center: latLng,
-      zoom: 14
+      zoom: 15,
+      scrollwheel: false
     });
 
     var marker = new google.maps.Marker({
