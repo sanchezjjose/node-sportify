@@ -26,19 +26,20 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(session({ name: 'NODE_SPORTIFY_SESSION',
-                  secret: 'houston43', 
-                  saveUninitialized: true, 
-                  resave: false }));
+app.use(session({ name: 'NODE_SPORTIFY_SESSION', secret: 'houston43', saveUninitialized: true, resave: false }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 if (app.get('env') === 'development') {
+  app.use('/node_modules', express.static(__dirname + '/node_modules'));
+}
+
+if (app.get('env') === 'development') {
   app.use(require('connect-livereload')());
 }
 
-app.locals.isDev = process.env.NODE_ENV == 'development'
+app.locals.isDev = process.env.NODE_ENV == 'development';
 
 // var helper = require('./routes/helper');
 // app.use(helper.getUserContext);

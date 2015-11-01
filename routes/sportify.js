@@ -18,7 +18,6 @@ var Sportify = {
   },
 
   login : function() {
-    console.log(config);
 
     return {
       host: config.SPORTIFY_SERVICE_HOST,
