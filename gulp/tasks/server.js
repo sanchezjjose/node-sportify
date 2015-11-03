@@ -20,6 +20,9 @@ gulp.task('server', function() {
   // bundle css on less changes
   gulp.watch("public/stylesheets/*.less", ['less']);
 
+  // bundle js on javascript changes
+  gulp.watch("public/javascripts/*.js", ['js']);
+
   // restart if server side files are changed
   gulp.watch('app.js', function() { server.start() });
   gulp.watch('routes/*.js', function() { server.start() });

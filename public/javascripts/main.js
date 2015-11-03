@@ -23,7 +23,7 @@
 
   }
 
-}(this, function (rsvp, signup, maps, React, ReactDom, ReactToggle) {
+}(this, function (rsvp, signup, maps, React, ReactDom, reactToggle) {
 
   rsvp.init();
 
@@ -31,10 +31,7 @@
 
   maps.init();
 
-  ReactDom.render(
-    React.createElement(ReactToggle, null),
-    document.getElementById('react-toggle-container')
-  );
+  reactToggle.init('react-toggle-container');
 
   // Exposed public method
   return {};

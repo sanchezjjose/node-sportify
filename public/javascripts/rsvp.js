@@ -29,7 +29,6 @@
 
       $.post(url, { rsvp: rsvp, team_id: teamId }).done(function(data) {
         document.location.reload(false);
-        console.log(data);
         
         // var content = $( data ).find( "#content" );
         // $( "#result" ).empty().append( content );
