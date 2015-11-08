@@ -31,9 +31,44 @@
 
   maps.init();
 
-  reactToggle.init('react-toggle-container');
+  var domElement = document.getElementById('react-toggle-container');
 
-  // Exposed public method
+  var onStateHttpRequest = {
+    url: '/rsvp/player/111111/game/111111',
+    postData: { rsvp: 'in', team_id: '111111' }
+  };
+  
+  var offStateHttpRequest = {
+    url: '/rsvp/player/111111/game/111111',
+    postData: { rsvp: 'out', team_id: '111111' }
+  };
+  
+  var opts = {
+
+    onState: { 
+      buttonTextValue: 'In',
+      buttonStyle: {
+        backgroundColor: 'red',
+        border: '3px solid red'
+      }
+    },
+
+    offState: { 
+      buttonTextValue: 'Out',
+      buttonStyle: {
+        backgroundColor: 'black',
+        border: '3px solid black'
+      }
+    }
+  };
+
+  reactToggle.init(
+    domElement, 
+    onStateHttpRequest,
+    offStateHttpRequest,
+    opts
+  );
+
   return {};
   
 }));
