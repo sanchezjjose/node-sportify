@@ -4,39 +4,75 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
-    define(['jquery'], factory);
+    define(['jquery', 'react', 'react-dom', '@sanchezjjose/react-toggle-component'], factory);
 
   } else if (typeof exports === 'object') {
     // CommonJS -- Node + Browserify
-    module.exports = factory(require('jquery'));
+    module.exports = factory(
+      require('jquery'),
+      require('react'), 
+      require('react-dom'),
+      require('@sanchezjjose/react-toggle-component')
+    );
 
   } else {
     // Browser globals (root is window)
-    root.rsvp = factory(root.jQuery);
+    root.rsvp = factory(root.jQuery, root.React, root.ReactDOM, root.ReactToggle);
 
   }
 
-}(this, function ($) {
+}(this, function ($, React, ReactDom, reactToggle) {
 
   function init() {
 
-    $('.next-game.rsvp a').click(function (ev) {
-      ev.preventDefault();
+    var domElement = document.getElementById('react-toggle-component'),
+        playerId = domElement.dataset.playerId,
+        gameId = domElement.dataset.gameId,
+        teamId = domElement.dataset.teamId,
+        postUrl = '/rsvp/player/' + playerId + '/game/' + gameId;
 
-      var url = '/rsvp/player/' + $(this).data("player-id") + '/game/' + $(this).data("game-id"),
-          rsvp = $(this).data("rsvp"),
-          teamId = $(this).data("team-id");
+    var onStateHttpRequest = {
+      url: postUrl,
+      postData: { rsvp: 'in', team_id: teamId }
+    };
+    
+    var offStateHttpRequest = {
+      url: postUrl,
+      postData: { rsvp: 'out', team_id: teamId }
+    };
+    
+    var opts = {
 
-      $.post(url, { rsvp: rsvp, team_id: teamId }).done(function(data) {
-        document.location.reload(false);
-        
-        // var content = $( data ).find( "#content" );
-        // $( "#result" ).empty().append( content );
-      });;
-    });
+      onState: { 
+        buttonTextValue: 'In',
+        buttonStyle: {
+          backgroundColor: 'red',
+          border: '3px solid red'
+        }
+      },
+
+      offState: { 
+        buttonTextValue: 'Out',
+        buttonStyle: {
+          backgroundColor: 'black',
+          border: '3px solid black'
+        }
+      }
+    };
+
+    function callback(data) {
+      document.location.reload(false);
+    }
+
+    reactToggle.init(
+      domElement, 
+      callback,
+      onStateHttpRequest,
+      offStateHttpRequest,
+      opts
+    );
   }
 
-  // Exposed public method
   return {
     init : init
   };
