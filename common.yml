@@ -1,6 +1,8 @@
 node-sportify:
   build: .
   container_name: node-sportify
+  environment:
+    - GOOGLE_MAPS_SERVER_API_KEY
   ports:
     - "3000:3000"
 

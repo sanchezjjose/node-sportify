@@ -69,7 +69,7 @@ router.get('/', helper.isAuthenticated, function(req, res) {
           callback(null, sportifyResponse, JSON.parse(body));
 
         } catch(e) {
-          res.status(404).send('Error occurred.');
+          res.status(404).send('Error occurred with google maps API.');
         }
       });
 

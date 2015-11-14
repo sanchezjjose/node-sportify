@@ -25,54 +25,57 @@
 
   function init() {
 
-    var domElement = document.getElementById('react-toggle-component'),
-        playerId = domElement.dataset.playerId,
-        gameId = domElement.dataset.gameId,
-        teamId = domElement.dataset.teamId,
-        postUrl = '/rsvp/player/' + playerId + '/game/' + gameId;
+    var domElement = document.getElementById('react-toggle-component');
 
-    var onStateHttpRequest = {
-      url: postUrl,
-      postData: { rsvp: 'in', team_id: teamId }
-    };
-    
-    var offStateHttpRequest = {
-      url: postUrl,
-      postData: { rsvp: 'out', team_id: teamId }
-    };
-    
-    var opts = {
+    if (domElement) {
+      var playerId = domElement.dataset.playerId,
+          gameId = domElement.dataset.gameId,
+          teamId = domElement.dataset.teamId,
+          postUrl = '/rsvp/player/' + playerId + '/game/' + gameId;
 
-      onState: { 
-        buttonTextValue: 'In',
-        buttonStyle: {
-          backgroundColor: '#4b758b',
-          border: '1px solid #5788a1',
-          color: '#eee'
+      var onStateHttpRequest = {
+        url: postUrl,
+        postData: { rsvp: 'in', team_id: teamId }
+      };
+      
+      var offStateHttpRequest = {
+        url: postUrl,
+        postData: { rsvp: 'out', team_id: teamId }
+      };
+      
+      var opts = {
+
+        onState: { 
+          buttonTextValue: 'In',
+          buttonStyle: {
+            backgroundColor: '#4b758b',
+            border: '1px solid #5788a1',
+            color: '#eee'
+          }
+        },
+
+        offState: { 
+          buttonTextValue: 'Out',
+          buttonStyle: {
+            backgroundColor: '#e0e0e0',
+            border: '1px solid #cccccc',
+            color: '#505050'
+          }
         }
-      },
+      };
 
-      offState: { 
-        buttonTextValue: 'Out',
-        buttonStyle: {
-          backgroundColor: '#e0e0e0',
-          border: '1px solid #cccccc',
-          color: '#505050'
-        }
+      function callback(data) {
+        document.location.reload(false);
       }
-    };
 
-    function callback(data) {
-      document.location.reload(false);
+      reactToggle.init(
+        domElement, 
+        callback,
+        onStateHttpRequest,
+        offStateHttpRequest,
+        opts
+      );
     }
-
-    reactToggle.init(
-      domElement, 
-      callback,
-      onStateHttpRequest,
-      offStateHttpRequest,
-      opts
-    );
   }
 
   return {

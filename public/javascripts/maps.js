@@ -24,35 +24,38 @@
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var mapElement = document.getElementById('map');
-    var latitude = parseFloat(mapElement.dataset.latitude);
-    var longitude = parseFloat(mapElement.dataset.longitude);
-    var latLng = { lat: latitude, lng: longitude };
 
-    var map = new google.maps.Map(mapElement, {
-      center: latLng,
-      zoom: 15,
-      scrollwheel: false
-    });
+    if (mapElement) {
+      var latitude = parseFloat(mapElement.dataset.latitude);
+      var longitude = parseFloat(mapElement.dataset.longitude);
+      var latLng = { lat: latitude, lng: longitude };
 
-    var marker = new google.maps.Marker({
-      position: latLng,
-      map: map,
-      animation: google.maps.Animation.DROP
-    });
+      var map = new google.maps.Map(mapElement, {
+        center: latLng,
+        zoom: 15,
+        scrollwheel: false
+      });
 
-    directionsDisplay.setMap(map);
+      var marker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        animation: google.maps.Animation.DROP
+      });
 
-    var onClickHandler = function() {
-      var origin = document.querySelectorAll('.directions-origin input')[0].value;
-      var destination = mapElement.dataset.address;
+      directionsDisplay.setMap(map);
 
-      displayRoute(directionsDisplay, directionsService, origin, destination);
+      var onClickHandler = function() {
+        var origin = document.querySelectorAll('.directions-origin input')[0].value;
+        var destination = mapElement.dataset.address;
 
-      var googleMapsExternalLink = document.querySelectorAll('.directions-google-maps a')[0];
-      googleMapsExternalLink.href = 'https://www.google.com/maps/dir/' + origin + '/' + destination;
+        displayRoute(directionsDisplay, directionsService, origin, destination);
+
+        var googleMapsExternalLink = document.querySelectorAll('.directions-google-maps a')[0];
+        googleMapsExternalLink.href = 'https://www.google.com/maps/dir/' + origin + '/' + destination;
+      }
+
+      document.querySelectorAll('.directions-origin button')[0].addEventListener('click', onClickHandler);
     }
-
-    document.querySelectorAll('.directions-origin button')[0].addEventListener('click', onClickHandler);
   }
 
   function displayRoute(directionsDisplay, directionsService, origin, destination) {
