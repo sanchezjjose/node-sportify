@@ -40,7 +40,7 @@
     "morgan": "~1.0.0",
     "react": "^0.14.1",
     "react-dom": "^0.14.1",
-    "@sanchezjjose/react-toggle-component": "~0.0.8",
+    "@sanchezjjose/react-toggle-component": "~0.1.0",
     "querystring": "^0.2.0",
     "static-favicon": "~1.0.0"
   },

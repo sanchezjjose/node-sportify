@@ -19,7 +19,25 @@ var app = module.exports.app = exports.app = express();
 var exphbs = require('express-handlebars');
 
 app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
+app.engine('.hbs', exphbs({
+  defaultLayout: 'main', 
+  extname: '.hbs',
+  helpers: {
+    // TODO: move this to separate middleware
+    'equals': function (one, two, options) {
+      if (one === two) {
+        return options.fn(this);
+      }
+      return options.inverse(this);
+    },
+    'contains': function (elem, list, options) {
+      if (list.indexOf(elem) > -1) {
+        return options.fn(this);
+      }
+      return options.inverse(this);
+    },
+  }
+}));
 app.set('view engine', '.hbs');
 
 app.use(favicon());

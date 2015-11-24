@@ -17,7 +17,6 @@
   } else {
     // Browser globals (root is window)
     root.returnExports = factory(root.rsvp, root.signup, root.googleMaps);
-
   }
 
 }(this, function (rsvp, signup, maps) {

@@ -28,7 +28,8 @@
     var domElement = document.getElementById('react-toggle-component');
 
     if (domElement) {
-      var playerId = domElement.dataset.playerId,
+      var rsvpStatus = domElement.dataset.rsvpStatus === 'true',
+          playerId = domElement.dataset.playerId,
           gameId = domElement.dataset.gameId,
           teamId = domElement.dataset.teamId,
           postUrl = '/rsvp/player/' + playerId + '/game/' + gameId;
@@ -69,7 +70,8 @@
       }
 
       reactToggle.init(
-        domElement, 
+        domElement,
+        rsvpStatus,
         callback,
         onStateHttpRequest,
         offStateHttpRequest,

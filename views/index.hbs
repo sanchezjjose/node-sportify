@@ -5,7 +5,13 @@
 
   <h2>{{active_team.name}} vs {{next_game.opponent}}</h2>
 
-  <div id="react-toggle-component" data-player-id="{{player_id}}" data-game-id="{{next_game._id}}" data-team-id="{{active_team._id}}"></div>
+  <div id="react-toggle-component" 
+       {{!-- TODO: remove this hack, should be part of the API response instead --}}
+       data-rsvp-status={{#contains player_id next_game.players_in}}"true"{{else}}"false"{{/contains}}
+       data-player-id="{{player_id}}" 
+       data-game-id="{{next_game._id}}" 
+       data-team-id="{{active_team._id}}">
+  </div>
 
   <p> Game Number: {{next_game.number}} </p>
   <p> Start Time: {{next_game.start_time}} </p>
