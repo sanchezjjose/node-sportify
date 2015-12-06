@@ -17,11 +17,10 @@
 
   } else {
     // Browser globals (root is window)
-    root.rsvp = factory(root.jQuery, root.React, root.ReactDOM, root.ReactToggle);
-
+    root.rsvp = factory(root.jQuery, root.React, root.ReactDOM, root.ReactToggleComponent);
   }
 
-}(this, function ($, React, ReactDom, reactToggle) {
+}(this, function ($, React, ReactDom, ReactToggleComponent) {
 
   function init() {
 
@@ -46,21 +45,21 @@
       
       var opts = {
 
-        onState: { 
-          buttonTextValue: 'In',
-          buttonStyle: {
-            backgroundColor: '#4b758b',
-            border: '1px solid #5788a1',
-            color: '#eee'
+        onState: {
+          text: 'In',
+          styles: {
+            buttonComponent: { },
+            textComponent: { },
+            sliderComponent: { }
           }
         },
 
         offState: { 
-          buttonTextValue: 'Out',
-          buttonStyle: {
-            backgroundColor: '#e0e0e0',
-            border: '1px solid #cccccc',
-            color: '#505050'
+          text: 'Out',
+          styles: {
+            buttonComponent: { },
+            textComponent: { },
+            sliderComponent: { }
           }
         }
       };
@@ -69,7 +68,7 @@
         document.location.reload(false);
       }
 
-      reactToggle.init(
+      ReactToggleComponent.init(
         domElement,
         rsvpStatus,
         callback,

@@ -13,7 +13,6 @@
   } else {
     // Browser globals (root is window)
     root.signup = factory(root.jQuery);
-
   }
 
 }(this, function ($) {
