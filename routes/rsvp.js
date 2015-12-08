@@ -20,8 +20,12 @@ router.post('/', helper.isAuthenticated, function(req, res) {
 
       try {
         var bodyJson = JSON.parse(body);
+
+        // simply return the partial
+        Object.assign(bodyJson, { layout: false });
+
         res.status(response.statusCode);
-        res.render('index', bodyJson);
+        res.render('partials/rsvp', bodyJson);
         
       } catch(e) {
         res.status(404).send('Error occurred.');

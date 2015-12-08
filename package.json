@@ -5,12 +5,7 @@
   "browserify": {
     "transform": [
       [
-        "hbsfy",
-        {
-          "extensions": [
-            "hbs"
-          ]
-        }
+        "hbsfy", { "extensions": [ "hbs" ] }
       ]
     ]
   },

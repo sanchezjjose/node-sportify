@@ -65,7 +65,8 @@
       };
 
       function callback(data) {
-        document.location.reload(false);
+        // var content = $(data).find(".rsvp-status");
+        $(".rsvp-section").empty().append(data);
       }
 
       ReactToggleComponent.init(
