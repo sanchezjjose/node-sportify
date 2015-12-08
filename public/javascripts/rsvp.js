@@ -33,14 +33,17 @@
           teamId = domElement.dataset.teamId,
           postUrl = '/rsvp/player/' + playerId + '/game/' + gameId;
 
-      var onStateHttpRequest = {
-        url: postUrl,
-        postData: { rsvp: 'in', team_id: teamId }
-      };
-      
-      var offStateHttpRequest = {
-        url: postUrl,
-        postData: { rsvp: 'out', team_id: teamId }
+      var httpRequests = {
+
+        onState: {
+          url: postUrl,
+          postData: { rsvp: 'in', team_id: teamId }
+        },
+
+        offState: {
+          url: postUrl,
+          postData: { rsvp: 'out', team_id: teamId }
+        },
       };
       
       var opts = {
@@ -73,8 +76,7 @@
         domElement,
         rsvpStatus,
         callback,
-        onStateHttpRequest,
-        offStateHttpRequest,
+        httpRequests,
         opts
       );
     }
