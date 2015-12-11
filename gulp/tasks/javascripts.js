@@ -8,20 +8,26 @@ var print = require('gulp-print');
 
 var source = require('vinyl-source-stream');
 
-var BASE = './public/javascripts/main.js';
-var BASE_MINIFIED = 'bundle.js';
-var DEST_DIR = './public/build/';
+var files = [
+  './public/javascripts/index.js',
+  './public/javascripts/account.js'
+];
 
 gulp.task('uglify-js', function() {
-  var bundleStream = browserify(BASE).bundle();
 
-  return bundleStream
-    .pipe(source(BASE))
-    .pipe(print())
-    .pipe(streamify(uglify()))
-    .pipe(rename(BASE_MINIFIED))
-    .pipe(gulp.dest(DEST_DIR))
-    .pipe(print());
+  files.map(function(file) {
+
+    return browserify(file).bundle()
+      .pipe(source(file))
+      .pipe(print())
+      .pipe(streamify(uglify()))
+      .pipe(rename({
+        dirname: './js',
+        extname: '.bundle.js'
+      }))
+      .pipe(gulp.dest('./public/build'))
+      .pipe(print());
+  });
 });
 
 gulp.task('js', ['uglify-js']);

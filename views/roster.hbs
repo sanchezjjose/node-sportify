@@ -14,3 +14,17 @@
     </div>
   {{/each}}
 </div>
+
+{{#section 'head'}}
+  <link rel="stylesheet" type="text/css" href="/build/css/nav.bundle.css">
+  <link rel="stylesheet" type="text/css" href="/build/css/footer.bundle.css">
+  <link rel="stylesheet" type="text/css" href="/build/css/roster.bundle.css">
+{{/section}}
+
+{{#section 'scripts'}}
+  {{#if isDev}}
+    {{!-- set scripts to window to avoid waiting on bundles --}}
+  {{else}}
+    {{!-- <script src="/build/bundle.js"></script> --}}
+  {{/if}}  
+{{/section}}

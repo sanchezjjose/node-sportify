@@ -3,15 +3,12 @@
 
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD
     define([], factory);
 
   } else if (typeof exports === 'object') {
-    // CommonJS -- Node + Browserify
     module.exports = factory();
 
   } else {
-    // Browser globals (root is window)
     root.googleMaps = factory();
   }
 

@@ -3,11 +3,9 @@
 
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD
     define(['jquery', 'react', 'react-dom', '@sanchezjjose/react-toggle-component'], factory);
 
   } else if (typeof exports === 'object') {
-    // CommonJS -- Node + Browserify
     module.exports = factory(
       require('jquery'),
       require('react'), 
@@ -16,7 +14,6 @@
     );
 
   } else {
-    // Browser globals (root is window)
     root.rsvp = factory(root.jQuery, root.React, root.ReactDOM, root.ReactToggleComponent);
   }
 

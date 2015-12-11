@@ -1,4 +1,3 @@
-
 <h1>Home Page</h1>
 
 {{#if next_game}}
@@ -41,4 +40,26 @@
 
 {{/if}}
 
+{{#section 'head'}}
+  <link rel="stylesheet" type="text/css" href="/build/css/nav.bundle.css">
+  <link rel="stylesheet" type="text/css" href="/build/css/footer.bundle.css">
+  <link rel="stylesheet" type="text/css" href="/build/css/home.bundle.css">
+{{/section}}
 
+{{#section 'scripts'}}
+  {{#if isDev}}
+    {{!-- set scripts to window to avoid waiting on bundles --}}
+    <script src="/dist/jquery-2.1.4.js"></script>
+    <script src="/dist/react-with-addons-0.14.3.js"></script>
+    <script src="/dist/react-dom-0.14.3.js"></script>
+    <script src="/node_modules/@sanchezjjose/react-toggle-component/lib/utils/http.js"></script>
+    <script src="/node_modules/@sanchezjjose/react-toggle-component/lib/components/slider.js"></script>
+    <script src="/node_modules/@sanchezjjose/react-toggle-component/lib/components/text.js"></script>
+    <script src="/node_modules/@sanchezjjose/react-toggle-component/lib/components/toggle.js"></script>
+    <script src="/javascripts/rsvp.js"></script>
+    <script src="/javascripts/maps.js"></script>
+    <script src="/javascripts/index.js"></script>
+  {{else}}
+    <script src="/build/js/index.bundle.js"></script>
+  {{/if}}
+{{/section}}
