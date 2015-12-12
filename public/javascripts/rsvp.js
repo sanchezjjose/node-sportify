@@ -34,12 +34,12 @@
 
         onState: {
           url: postUrl,
-          postData: { rsvp: 'in', team_id: teamId }
+          postData: { rsvp: 'out', team_id: teamId }
         },
 
         offState: {
           url: postUrl,
-          postData: { rsvp: 'out', team_id: teamId }
+          postData: { rsvp: 'in', team_id: teamId }
         },
       };
       
@@ -68,6 +68,8 @@
         // var content = $(data).find(".rsvp-status");
         $(".rsvp-section").empty().append(data);
       }
+
+      console.log(rsvpStatus);
 
       ReactToggleComponent.init(
         domElement,
