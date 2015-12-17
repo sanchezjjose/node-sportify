@@ -1,17 +1,17 @@
 node-sportify:
-  extends:
-    file: common.yml
-    service: node-sportify
-  command: node bin/www #gulp
-  environment:
-    - NODE_ENV=development
-  links:
-    - sportify
-  ports:
-    - "35729:35729" # livereload
-  #restart: always
-  volumes:
-    - ~/Code/node-sportify:/usr/src/app
+ extends:
+   file: common.yml
+   service: node-sportify
+ command: nodemon -L bin/www #gulp
+ environment:
+   - NODE_ENV=development
+ links:
+   - sportify
+ #ports:
+ #  - "35729:35729" # livereload
+ # restart: always
+ volumes:
+   - ~/Code/node-sportify:/usr/src/app
 
 sportify:
   extends:
