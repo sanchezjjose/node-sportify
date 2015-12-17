@@ -29475,6 +29475,8 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
 })(undefined, function ($, React, ReactDom, ReactToggleComponent) {
 
   function init() {
+    console.log("eeeeeeee");
+
     var domElement = document.getElementById('react-toggle-component');
 
     if (domElement) {
@@ -29535,4 +29537,4 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
 },{"@sanchezjjose/react-toggle-component":4,"jquery":8,"react":171,"react-dom":9}]},{},[172])
 
 
-//# sourceMappingURL=../map/js/index.bundle.js.map
+//# sourceMappingURL=map/bundle.js.map

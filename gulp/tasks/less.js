@@ -5,38 +5,34 @@ var plumber = require('gulp-plumber');
 var minifyCSS  = require('gulp-minify-css');
 var livereload = require('gulp-livereload');
 
-var files = [
-  'public/stylesheets/account.less',
-  'public/stylesheets/footer.less',
-  'public/stylesheets/home.less',
-  'public/stylesheets/login.less',
-  'public/stylesheets/main.less',
-  'public/stylesheets/nav.less',
-  'public/stylesheets/roster.less',
-  'public/stylesheets/rsvp.less',
-  'public/stylesheets/schedule.less',
-  'public/stylesheets/signup.less'
+var SOURCE_DIR = './public/stylesheets/';
+var OUTPUT_DIR = './public/build';
+var FILE_NAMES = [
+  'account.less',
+  'footer.less',
+  'home.less',
+  'login.less',
+  'main.less',
+  'nav.less',
+  'roster.less',
+  'rsvp.less',
+  'schedule.less',
+  'signup.less'
 ];
 
 gulp.task('less', function() {
   
-  files.map(function(file) {
+  FILE_NAMES.map(function(fileName) {
 
-    return gulp.src(file)
-      // .pipe(plumber(function(err) {
-      //   console.log(err);
-      //   this.emit('end');
-      // }))
+    return gulp.src(SOURCE_DIR + fileName)
       .pipe(less())
       .pipe(minifyCSS({keepBreaks:true}))
-      // .pipe(plumber())
       .pipe(rename({
         dirname: './css',
         extname: '.bundle.css'
       }))
-      // .pipe(plumber())
-      .pipe(gulp.dest('./public/build'))
+      .pipe(gulp.dest(OUTPUT_DIR))
       .pipe(livereload());
   });
-
 });
+

@@ -1,1 +1,33 @@
-!function t(e,r,n){function o(u,f){if(!r[u]){if(!e[u]){var c="function"==typeof require&&require;if(!f&&c)return c(u,!0);if(i)return i(u,!0);var s=new Error("Cannot find module '"+u+"'");throw s.code="MODULE_NOT_FOUND",s}var a=r[u]={exports:{}};e[u][0].call(a.exports,function(t){var r=e[u][1][t];return o(r?r:t)},a,a.exports,t,e,r,n)}return r[u].exports}for(var i="function"==typeof require&&require,u=0;u<n.length;u++)o(n[u]);return o}({1:[function(t,e,r){"use strict";!function(t,n){"function"==typeof define&&define.amd?define(["jquery"],n):"object"==typeof r?e.exports=n("jquery"):t.returnExports=n(t.jQuery)}(this,function(t){function e(e,r){t(e).each(function(){this.value==t(this).parent().data(r)&&t(this).attr("selected",!0)})}return e(".position option","current-position"),{}})},{}]},{},[1]);
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
+function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
+
+(function (root, factory) {
+
+  if (typeof define === 'function' && define.amd) {
+    define(['jquery'], factory);
+  } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
+    module.exports = factory('jquery');
+  } else {
+    root.returnExports = factory(root.jQuery);
+  }
+})(undefined, function ($) {
+
+  function setSelectedOption(locator, dataAttribute) {
+    $(locator).each(function () {
+      if (this.value == $(this).parent().data(dataAttribute)) {
+        $(this).attr('selected', true);
+      };
+    });
+  }
+
+  setSelectedOption('.position option', 'current-position');
+
+  return {};
+});
+
+},{}]},{},[1])
+
+
+//# sourceMappingURL=../map/js/account.bundle.js.map

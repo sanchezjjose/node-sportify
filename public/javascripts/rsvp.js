@@ -20,8 +20,6 @@
 }(this, function ($, React, ReactDom, ReactToggleComponent) {
 
   function init() {
-    console.log("eeeeeeee");
-
     var domElement = document.getElementById('react-toggle-component');
 
     if (domElement) {
