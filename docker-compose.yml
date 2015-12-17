@@ -2,7 +2,7 @@ node-sportify:
   extends:
     file: common.yml
     service: node-sportify
-  command: gulp
+  command: node bin/www #gulp
   environment:
     - NODE_ENV=development
   links:

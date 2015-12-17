@@ -1,5 +1,5 @@
 FROM node:4.0.0
-MAINTAINER Jose Sanchez <Jose.Sanchez@mlb.com>
+MAINTAINER Jose Sanchez <sanchezjjose@gmail.com>
 
 
 WORKDIR /usr/src/app
@@ -10,14 +10,6 @@ ADD package.json package.json
 
 
 RUN npm install
-
-
-RUN npm install -g \
-    gulp-cli \
-    browserify \
-    uglifyjs \
-    less \
-    catw
 
 
 ADD . .

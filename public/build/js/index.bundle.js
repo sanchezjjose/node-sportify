@@ -263,7 +263,7 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
   } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
-    module.exports = factory('jquery');
+    module.exports = factory(require('jquery'));
   } else {
     root.HttpUtil = factory(root.jQuery);
   }
@@ -289,7 +289,7 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
     }
   };
 });
-},{}],6:[function(require,module,exports){
+},{"jquery":8}],6:[function(require,module,exports){
 module.exports = require('react/lib/ReactCSSTransitionGroup');
 },{"react/lib/ReactCSSTransitionGroup":36}],7:[function(require,module,exports){
 // shim for using process in browser

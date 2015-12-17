@@ -15,16 +15,7 @@
     ]
   },
   "scripts": {
-    "server-prod": "NODE_ENV=production node ./bin/www",
-    "server-dev": "NODE_ENV=development node ./bin/www",
-    "start": "npm run build && npm run server-prod",
-    "start-dev": "npm run server-dev & npm run watch",
-    "build-js": "browserify public/javascripts/main.js | uglifyjs -mc > public/build/bundle.js",
-    "build-css": "lessc public/stylesheets/main.less > public/build/bundle.css",
-    "build": "npm run build-js && npm run build-css",
-    "watch-js": "watchify public/javascripts/main.js -o public/build/bundle.js -dv",
-    "watch-css": "catw -w -c 'lessc -' 'public/stylesheets/main.less' -o public/build/bundle.css -v",
-    "watch": "npm run watch-js & npm run watch-css"
+    "start": "node bin/www"
   },
   "dependencies": {
     "async": "~1.4.2",

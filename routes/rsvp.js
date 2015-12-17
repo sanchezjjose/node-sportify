@@ -28,7 +28,7 @@ router.post('/', helper.isAuthenticated, function(req, res) {
         res.render('partials/rsvp', bodyJson);
         
       } catch(e) {
-        res.status(404).send('Error occurred.');
+        res.status(500).send('Error occurred.');
       }
     });
 
