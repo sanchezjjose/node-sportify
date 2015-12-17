@@ -79,16 +79,5 @@
 {{/section}}
 
 {{#section 'scripts'}}
- {{#if isDev}}
-    {{!-- set scripts to window to avoid waiting on bundles --}}
-	  
-    <script src="/build/js/account.bundle.js"></script>
-
-	  {{!-- 
-	  <script src="/dist/jquery-2.1.4.js"></script>
-	  <script src="/javascripts/account.js"></script>
- --}}
-  {{else}}
-    <script src="/build/js/account.bundle.js"></script>
-  {{/if}}
+	<script src="/build/js/account.bundle.js"></script>
 {{/section}}
