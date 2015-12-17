@@ -26,7 +26,7 @@
 	{{/if}}
 
 	<div class='signup'> 
-	  Not a member? 
+	  Not a member?
 	  <a href='/signup'>Signup</a> 
 	</div>
 
@@ -39,6 +39,9 @@
 {{#section 'scripts'}}
 	{{#if isDev}}
 	  {{!-- set scripts to window to avoid waiting on bundles --}}
+
+	  <script src="/build/js/index.bundle.js"></script>
+
 	{{else}}
 	  {{!-- <script src="/build/bundle.js"></script> --}}
 	{{/if}}

@@ -20,6 +20,7 @@
 }(this, function ($, React, ReactDom, ReactToggleComponent) {
 
   function init() {
+    console.log("eeeeeeee");
 
     var domElement = document.getElementById('react-toggle-component');
 
@@ -68,8 +69,6 @@
         // var content = $(data).find(".rsvp-status");
         $(".rsvp-section").empty().append(data);
       }
-
-      console.log(rsvpStatus);
 
       ReactToggleComponent.init(
         domElement,

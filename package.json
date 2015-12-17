@@ -5,7 +5,12 @@
   "browserify": {
     "transform": [
       [
-        "hbsfy", { "extensions": [ "hbs" ] }
+        "hbsfy",
+        {
+          "extensions": [
+            "hbs"
+          ]
+        }
       ]
     ]
   },
@@ -33,30 +38,36 @@
     "jade": "~1.3.0",
     "jquery": "~2.1.4",
     "morgan": "~1.0.0",
-    "react": "^0.14.1",
-    "react-dom": "^0.14.1",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
     "@sanchezjjose/react-toggle-component": "~0.2.1",
     "querystring": "^0.2.0",
     "static-favicon": "~1.0.0"
   },
   "devDependencies": {
-    "browserify": "^9.0.3",
-    "connect-livereload": "^0.5.3",
-    "forever-monitor": "^1.6.0",
+    "babel-preset-es2015": "^6.1.2",
+    "babel-preset-react": "^6.1.2",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "chalk": "^1.1.1",
+    "connect-livereload": "^0.5.4",
     "gulp": "^3.9.0",
-    "gulp-less": "^3.0.2",
-    "gulp-live-server": "^0.0.28",
-    "gulp-minify-css": "^1.2.1",
+    "gulp-duration": "0.0.0",
+    "gulp-less": "^3.0.5",
+    "gulp-live-server": "0.0.29",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.2",
+    "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
-    "gulp-print": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-streamify": "0.0.5",
-    "gulp-uglify": "^1.1.0",
-    "handlebars": "^3.0.3",
-    "hbsfy": "^2.2.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
+    "handlebars": "^4.0.5",
+    "hbsfy": "^2.4.1",
     "require-dir": "^0.3.0",
+    "utils-merge": "^1.0.0",
+    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "vinyl-transform": "^1.0.0",
-    "watchify": "^2.2.1"
+    "watchify": "^3.6.0"
   }
 }

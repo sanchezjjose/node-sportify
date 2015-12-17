@@ -1,27 +1,26 @@
 var gulp = require('gulp');
 var gls = require('gulp-live-server');
+var livereload = require('gulp-livereload');
 
 gulp.task('server', function() {
-  var server = gls('bin/www', { env: { NODE_ENV: 'development' }});
-  server.start();
   
-  // restart browser when these files change
-  gulp.watch(['app.js',
-              'routes/*.js',
-              'public/javascripts/*.js',
-  	          'public/stylesheets/*.less',
-              'views/*.hbs',
-              'views/*/*.hbs'
-              ],
-              function (file) {
-                server.notify.apply(server, [file]);
-              });
+  // start livereload server first (port 35729 by default)
+  livereload.listen();
 
-  // bundle css on less changes
+  var opts = { env: { NODE_ENV: 'development' }};
+  var enableLiveReloadServer = false;
+  var server = gls('bin/www', opts, false);
+  
+  server.start();
+
+  // gulp.watch(['app.js', 'routes/*.js' , 'public/stylesheets/*.less'], function (file) {
+  //   server.notify.apply(server, [file]);
+  // });
+  
+  // bundles and reloads browser via pipes
   gulp.watch("public/stylesheets/*.less", ['less']);
-
-  // bundle js on javascript changes
   gulp.watch("public/javascripts/*.js", ['js']);
+  gulp.watch("views/**/*.hbs", ['html']);
 
   // restart if server side files are changed
   gulp.watch('app.js', function() { server.start() });
