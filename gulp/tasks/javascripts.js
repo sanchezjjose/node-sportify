@@ -18,7 +18,8 @@ var SOURCE_DIR = './public/javascripts/';
 var OUTPUT_DIR = './public/build/';
 var FILE_NAMES = [
   'index.js',
-  'account.js'
+  'account.js',
+  'header.js'
 ];
 
 function bundle(bundler, fileName) {

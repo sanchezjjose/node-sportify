@@ -2,13 +2,10 @@
 
 var $ = require('jquery');
 
-module.exports = {
+module.exports = (function() {
 
-  init: function() {
-    
-    $('.nav-button').click(function(ev) {
-      ev.preventDefault();
-      $('.dropdown-content').toggleClass('active');
-    })
-  }
-};
+  $('.nav-button').click(function(ev) {
+    ev.preventDefault();
+    $('.dropdown-content').toggleClass('active');
+  })
+})();

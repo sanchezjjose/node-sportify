@@ -29353,36 +29353,18 @@ module.exports = require('./lib/React');
 },{"./lib/React":33}],172:[function(require,module,exports){
 'use strict';
 
-var $ = require('jquery');
-
-module.exports = {
-
-  init: function init() {
-
-    $('.nav-button').click(function (ev) {
-      ev.preventDefault();
-      $('.dropdown-content').toggleClass('active');
-    });
-  }
-};
-
-},{"jquery":8}],173:[function(require,module,exports){
-'use strict';
-
 function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
 
 (function (root, factory) {
 
   if (typeof define === 'function' && define.amd) {
-    define(['./rsvp', './maps', './header'], factory);
+    define(['./rsvp', './maps'], factory);
   } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
-    module.exports = factory(require('./rsvp'), require('./maps'), require('./header'));
+    module.exports = factory(require('./rsvp'), require('./maps'));
   } else {
-    root.returnExports = factory(root.rsvp, root.googleMaps, null);
+    root.returnExports = factory(root.rsvp, root.googleMaps);
   }
-})(undefined, function (rsvp, maps, header) {
-
-  header.init();
+})(undefined, function (rsvp, maps) {
 
   rsvp.init();
 
@@ -29391,7 +29373,7 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
   return {};
 });
 
-},{"./header":172,"./maps":174,"./rsvp":175}],174:[function(require,module,exports){
+},{"./maps":173,"./rsvp":174}],173:[function(require,module,exports){
 'use strict';
 
 function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
@@ -29477,7 +29459,7 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
   };
 });
 
-},{}],175:[function(require,module,exports){
+},{}],174:[function(require,module,exports){
 'use strict';
 
 function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
@@ -29550,7 +29532,7 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
   };
 });
 
-},{"@sanchezjjose/react-toggle-component":4,"jquery":8,"react":171,"react-dom":9}]},{},[173])
+},{"@sanchezjjose/react-toggle-component":4,"jquery":8,"react":171,"react-dom":9}]},{},[172])
 
 
 //# sourceMappingURL=../map/js/index.bundle.js.map
