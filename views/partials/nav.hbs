@@ -13,9 +13,9 @@
     	  	<li class='tab tab-home'><a href='/team/{{active_team._id}}'>Home</a></li>
     	  	<li class='tab tab-schedule'><a href='/team/{{active_team._id}}/schedule'>Schedule</a></li>
     	  	<li class='tab tab-roster'><a href='/team/{{active_team._id}}/roster'>Roster</a></li>
-          <li>=== Teams ===</li>
+          <li class="teams-list-separator">Your Teams</li>
           {{#each other_teams}}
-            <li>
+            <li class="tab teams-list">
               <a href='/team/{{_id}}'>{{name}}</a>   
             </li> 
           {{/each}}

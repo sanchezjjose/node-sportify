@@ -31,38 +31,6 @@
     font-weight: normal;
   }
 
-  .dropdown-content {
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    border-top: 1px solid transparent;
-    display: none;
-    height: auto;
-    margin-top: 0;
-    position: absolute;
-    left: 0;
-    top: 60px;
-    text-align: center;
-    width: 200px;
-    z-index: 1;
-  }
-
-  .dropdown-content.active {
-    display: block;
-  }
-
-  .nav-button-container {
-    float: left;
-    padding: 16px;
-    width: 10%;
-
-    .nav-button {
-      background-color: transparent;
-      border: 0;
-      outline: 0;
-      cursor: pointer;
-      text-decoration: none;
-    }
-  }
 
   .header-logo {
     display: block;
@@ -93,4 +61,57 @@
     }
   }
 
+  .nav-button-container {
+    float: left;
+    padding: 16px;
+    width: 10%;
+
+    .nav-button {
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .dropdown-content {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-top: 1px solid transparent;
+      display: none;
+      height: auto;
+      margin-top: 0;
+      position: absolute;
+      left: 0;
+      top: 60px;
+      text-align: center;
+      width: 200px;
+      z-index: 1;
+    }
+
+    .dropdown-content.active {
+      display: block;
+    }
+
+    .tab a {
+      display: inline-block;
+      padding: 20px 0;
+      width: 100%;
+    }
+
+    .tab:hover {
+      background-color: @green;
+
+      a {
+        color: #fff;
+      }
+    }
+
+    .teams-list-separator {
+      background-color: #f4f4f4;
+      color: #555;
+      font-weight: lighter;
+      padding: 20px;
+    }
+  }
 }
