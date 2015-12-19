@@ -1,38 +1,40 @@
-<h1>Home Page</h1>
-
 {{#if next_game}}
 
-  <h2>{{active_team.name}} vs {{next_game.opponent}}</h2>
+  <section class="heading">
+    <h1 class="matchup">{{active_team.name}} vs {{next_game.opponent}}</h1>
+    <h2 class="game-number"> Game {{next_game.number}} </h2>
+  </section>
 
-  <div id="react-toggle-component" 
+  <section class="details">
+    <div id="react-toggle-component" 
        {{!-- TODO: remove this hack, should be part of the API response instead --}}
        data-rsvp-status={{#contains player_id next_game.players_in}}"true"{{else}}"false"{{/contains}}
        data-player-id="{{player_id}}" 
        data-game-id="{{next_game._id}}" 
        data-team-id="{{active_team._id}}">
-  </div>
+    </div>
 
-  <p> Game Number: {{next_game.number}} </p>
-  <p> Start Time: {{next_game.start_time}} </p>
-  <p> Address: {{next_game.address}} </p>
-  <p> Gym: {{next_game.gym}} </p>
-  <p> Location Details: {{next_game.location_details}} </p>
+    <p> Start Time: {{next_game.start_time}} </p>
+    <p> Address: {{next_game.address}} </p>
+    <p> Gym: {{next_game.gym}} </p>
+    <p> Location Details: {{next_game.location_details}} </p>
 
-  <section class="rsvp-section">
-    {{>rsvp}}
+    <section class="rsvp-section">
+      {{>rsvp}}
+    </section>
+  
+    <div class='directions-google-maps'>
+      <a target="_blank" href='https://www.google.com/maps/place/{{next_game.address}}'>See Directions in Google Maps</a>
+    </div>
+
+    <div class='directions-origin'>
+      <label>Origin: </label>
+      <input placeholder='e.g., 75 9th Avenue, New York, NY'></input>
+      <button>Get Directions</button>
+    </div>
+
+    <div id="map" data-address="{{next_game.address}}" data-latitude={{lat}} data-longitude={{lng}} ></div>
   </section>
-
-  <div class='directions-google-maps'>
-    <a target="_blank" href='https://www.google.com/maps/place/{{next_game.address}}'>See Directions in Google Maps</a>
-  </div>
-
-  <div class='directions-origin'>
-    <label>Origin: </label>
-    <input placeholder='e.g., 75 9th Avenue, New York, NY'></input>
-    <button>Get Directions</button>
-  </div>
-
-  <div id="map" data-address="{{next_game.address}}" data-latitude={{lat}} data-longitude={{lng}} ></div>
 
 {{else}}
 

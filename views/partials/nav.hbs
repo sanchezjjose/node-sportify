@@ -1,22 +1,26 @@
-<nav class='navigation' id='globalnav' role='navigation'>
-  <div class='nav-content'>
-    <div class='nav-main'>
-	  <ul class='nav-list'>
-	    <li class='nav-tab nav-tab-logo'><a class='nav-tab-link' href='/team/{{active_team._id}}'>Sportify</a></li>
-	  	<li class='nav-tab nav-tab-home'><a class='nav-tab-link' href='/team/{{active_team._id}}'>Home</a></li>
-	  	<li class='nav-tab nav-tab-schedule'><a class='nav-tab-link' href='/team/{{active_team._id}}/schedule'>Schedule</a></li>
-	  	<li class='nav-tab nav-tab-roster'><a class='nav-tab-link' href='/team/{{active_team._id}}/roster'>Roster</a></li>
-	  	<li class='nav-tab nav-tab-account'><a class='nav-tab-link' href='/account?team_id={{active_team._id}}'>Account</a></li>
-	  </ul>
-	</div>
-	 
-  <ul class='nav-teams-dropdown'>
-    {{#each other_teams}}
-      <li>
-        <a href='/team/{{_id}}'>{{name}}</a>   
-      </li> 
-    {{/each}}
-  </ul> 
- 
-</div>
+<nav class='header' role='navigation'>
+  <div class='header-content'>
+    <div class="nav-button-container">
+      <button class="nav-button">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31px" height="19px" viewBox="0 0 31 19" enable-background="new 0 0 31 19" xml:space="preserve" class="icon">
+          <rect x="0" y="8" fill="#333333" width="31" height="3"></rect>
+          <rect x="0" y="0" fill="#333333" width="31" height="3"></rect>
+          <rect x="0" y="16" fill="#333333" width="31" height="3"></rect>
+        </svg>
+      </button>
+  	  <ul class='header-list'>
+  	  	<li class='tab tab-home'><a href='/team/{{active_team._id}}'>Home</a></li>
+  	  	<li class='tab tab-schedule'><a href='/team/{{active_team._id}}/schedule'>Schedule</a></li>
+  	  	<li class='tab tab-roster'><a href='/team/{{active_team._id}}/roster'>Roster</a></li>
+        <li>=== Teams ===</li>
+        {{#each other_teams}}
+          <li>
+            <a href='/team/{{_id}}'>{{name}}</a>   
+          </li> 
+        {{/each}}
+  	  </ul>
+    </div>
+    <div class='header-logo'><a href='/team/{{active_team._id}}'>Sportify</a></div>
+    <div class='tab-account'><a href='/account?team_id={{active_team._id}}'>Account</a></div>
+  </div>
 </nav> 

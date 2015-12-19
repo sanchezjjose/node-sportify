@@ -1,77 +1,82 @@
-@color-dark-grey: rgba(0,0,0,0.6);
-@color-light-grey: lightgrey;
+@import "main";
 
-.navigation {
-  background-color: @color-dark-grey;
-
-  .nav-content {
-    padding: 20px 10px;
-  }
+.header {
+  background-color: #fff;
+  height: 60px;
+  left: 0;
+  position: fixed
+  right: 0;
+  top: 0;
+  z-index: 99;
 
   a {
-    color: #fff;
+    color: #000;
 
     &:link {
       text-decoration: none;
     }
-
-    &:hover {
-      color: @color-light-grey;
-    }
   }
 
   ul {
-    font-size: 1em;
-    font-weight: normal;
-    font-style: normal;
     line-height: 1;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  .nav-list {
+  .header-content {
+    display: block;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  .header-list {
+    display: none;
     position: relative;
-    text-align: justify;
-    z-index: 1;
-    width: 95%;
+  }
 
-    li {
-      line-height: 1;
-      font-size: 1em;
-      font-style: normal;
-      font-weight: normal;
-    }
+  .nav-button-container {
+    float: left;
+    padding: 16px;
+    width: 10%;
 
-    .nav-tab-logo {
-      & a:hover {
-        color: #fff;
-      }
-    }
-
-    .nav-tab {
-      color: #fff;
-      display: inline-block;
-      list-style-type: none;
-      margin: 0;
-      vertical-align: top;
-
-      .nav-tab-link {
-        display: block;
-        padding: 0 10px;
-        position: relative;
-        opacity: 1;
-        outline-offset: -0.22222em;
-        width: 2.16667em;
-      }
+    .nav-button {
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+      text-decoration: none;
     }
   }
 
-  .nav-list:after {
-    content: '';
-    display: inline-block;
-    font-size: 0;
-    line-height: 0;
-    width: 100%;
+  .header-logo {
+    display: block;
+    float: left;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 70%;
+
+    @media @viewport-mobile {
+      width: 60%;
+    }
   }
+
+  .tab-account {
+    display: block;
+    float: left;
+    position: relative;
+    text-align: right;
+    top: 22px;
+    width: 10%;
+
+    @media @viewport-mobile {
+      font-size: 14px;
+      right: 14px;
+    }
+  }
+
 }
