@@ -1,9 +1,4 @@
-@viewport-desktop: ~"(min-width: 1024px)";
-@viewport-tablet: ~"(min-width: 768px) and (max-width: 1023px)";
-@viewport-mobile: ~"(max-width: 767px)";
-
-@green: #28c891;
-@lightgray: #f4f4f4;
+@import "util";
 
 html, body {
   height: 100%;
@@ -12,17 +7,19 @@ html, body {
 }
 
 body {
-  background-color: @lightgray;
+  background-color: @color-light-gray;
   font-family: "Myriad Set Pro","Lucida Grande","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
   font-style: normal;
 }
 
 .container {
-  height: 100%;
+  height: auto;
   margin: 0 auto;
 }
 
 .content {
   text-align: center;
+  margin: 62px 0;
   position: relative;
+  width: 100%;
 }

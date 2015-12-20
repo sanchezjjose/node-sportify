@@ -1,13 +1,121 @@
-@import "main";
+@import "util";
 
 .header {
   background-color: #fff;
-  height: 60px;
   left: 0;
-  position: fixed
+  position: fixed;
   right: 0;
   top: 0;
+  width: 100%;
   z-index: 99;
+
+  .header-content {
+    background-color: #fff;
+    border: 1px solid @color-gray;
+    display: block;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    height: 61px;
+    width: 100%;
+
+    .header-logo {
+      display: block;
+      float: left;
+      font-size: 26px;
+      font-weight: bold;
+      padding: 16px;
+      text-align: center;
+      text-transform: uppercase;
+      width: 72%;
+
+      @media @viewport-mobile {
+        width: 60%;
+      }
+      @media @viewport-tablet-portrait {
+        width: 65%;
+      }
+      @media @viewport-tablet-landscape {
+        width: 68%;
+      }
+    }
+
+    .tab-account {
+      display: block;
+      float: left;
+      left: 22px;
+      font-size: 16px;
+      position: relative;
+      text-align: right;
+      top: 22px;
+      width: 6%;
+
+      @media @viewport-mobile {
+        font-size: 13px;
+        left: -16px;
+      }
+
+      @media @viewport-tablet-portrait, 
+             @viewport-tablet-landscape {
+        font-size: 14px;
+        left: 10px;
+      }
+    }
+
+    .nav-button-container {
+      float: left;
+      padding: 16px;
+      width: 10%;
+
+      .nav-button {
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .dropdown-content {
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-top: 1px solid transparent;
+        display: none;
+        height: auto;
+        margin-top: 0;
+        position: absolute;
+        left: 0;
+        top: 60px;
+        text-align: center;
+        width: 200px;
+        z-index: 1;
+      }
+
+      .dropdown-content.active {
+        display: block;
+      }
+
+      .tab a {
+        display: inline-block;
+        padding: 20px 0;
+        width: 100%;
+      }
+
+      .tab:hover {
+        background-color: @color-green;
+
+        a {
+          color: #fff;
+        }
+      }
+
+      .teams-list-separator {
+        background-color: #f4f4f4;
+        color: #555;
+        font-weight: lighter;
+        padding: 20px;
+      }
+    }
+  }
 
   a {
     color: #000;
@@ -22,96 +130,5 @@
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-
-  .header-content {
-    display: block;
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
-  }
-
-
-  .header-logo {
-    display: block;
-    float: left;
-    font-size: 26px;
-    font-weight: bold;
-    padding: 16px;
-    text-align: center;
-    text-transform: uppercase;
-    width: 70%;
-
-    @media @viewport-mobile {
-      width: 60%;
-    }
-  }
-
-  .tab-account {
-    display: block;
-    float: left;
-    position: relative;
-    text-align: right;
-    top: 22px;
-    width: 10%;
-
-    @media @viewport-mobile {
-      font-size: 14px;
-      right: 14px;
-    }
-  }
-
-  .nav-button-container {
-    float: left;
-    padding: 16px;
-    width: 10%;
-
-    .nav-button {
-      background-color: transparent;
-      border: 0;
-      outline: 0;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .dropdown-content {
-      background: #fff;
-      border: 1px solid #e5e5e5;
-      border-top: 1px solid transparent;
-      display: none;
-      height: auto;
-      margin-top: 0;
-      position: absolute;
-      left: 0;
-      top: 60px;
-      text-align: center;
-      width: 200px;
-      z-index: 1;
-    }
-
-    .dropdown-content.active {
-      display: block;
-    }
-
-    .tab a {
-      display: inline-block;
-      padding: 20px 0;
-      width: 100%;
-    }
-
-    .tab:hover {
-      background-color: @green;
-
-      a {
-        color: #fff;
-      }
-    }
-
-    .teams-list-separator {
-      background-color: #f4f4f4;
-      color: #555;
-      font-weight: lighter;
-      padding: 20px;
-    }
   }
 }
