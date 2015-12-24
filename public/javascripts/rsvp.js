@@ -23,10 +23,10 @@
     var domElement = document.getElementById('react-toggle-component');
 
     if (domElement) {
-      var rsvpStatus = domElement.dataset.rsvpStatus === 'true',
-          playerId = domElement.dataset.playerId,
-          gameId = domElement.dataset.gameId,
-          teamId = domElement.dataset.teamId,
+      var rsvpStatus = Sportify.rsvpStatus,
+          playerId = Sportify.playerId,
+          gameId = Sportify.nextGameId,
+          teamId = Sportify.activeTeamId,
           postUrl = '/rsvp/player/' + playerId + '/game/' + gameId;
 
       var httpRequests = {

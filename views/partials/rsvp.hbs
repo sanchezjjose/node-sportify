@@ -2,14 +2,25 @@
   Players In:
   <ul class='players-in'>
     {{#each players_in}}
-      <li> {{this}} </li>   
+      <li> {{this.full_name}} </li>   
     {{/each}}
   </ul> 
 
   Players Out:
   <ul class='players-out'>
     {{#each players_out}}
-      <li> {{this}} </li>   
+      <li> {{this.full_name}} </li>   
     {{/each}}
   </ul>
 </div>
+
+<script>
+  var Sportify = {};
+
+  Sportify.playerId = "{{player_id}}";
+  Sportify.nextGameId = "{{next_game._id}}";
+  Sportify.activeTeamId = "{{active_team._id}}";
+
+  // TODO: remove this hack, should be part of the API response instead
+  Sportify.rsvpStatus = "{{players_in}}".indexOf(Sportify.playerId) >= 0;
+</script>

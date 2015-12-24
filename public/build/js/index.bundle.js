@@ -29396,8 +29396,8 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
     var mapElement = document.getElementById('map');
 
     if (mapElement) {
-      var latitude = parseFloat(mapElement.dataset.latitude);
-      var longitude = parseFloat(mapElement.dataset.longitude);
+      var latitude = parseFloat(MapsData.latitude);
+      var longitude = parseFloat(MapsData.longitude);
       var latLng = { lat: latitude, lng: longitude };
 
       var map = new google.maps.Map(mapElement, {
@@ -29416,7 +29416,7 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
 
       var onClickHandler = function onClickHandler() {
         var origin = document.querySelectorAll('.directions-origin input')[0].value;
-        var destination = mapElement.dataset.address;
+        var destination = MapsData.address;
 
         displayRoute(directionsDisplay, directionsService, origin, destination);
 
@@ -29483,10 +29483,10 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
         $(".rsvp-section").empty().append(data);
       };
 
-      var rsvpStatus = domElement.dataset.rsvpStatus === 'true',
-          playerId = domElement.dataset.playerId,
-          gameId = domElement.dataset.gameId,
-          teamId = domElement.dataset.teamId,
+      var rsvpStatus = Sportify.rsvpStatus,
+          playerId = Sportify.playerId,
+          gameId = Sportify.nextGameId,
+          teamId = Sportify.activeTeamId,
           postUrl = '/rsvp/player/' + playerId + '/game/' + gameId;
 
       var httpRequests = {

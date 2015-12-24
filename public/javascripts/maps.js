@@ -22,8 +22,8 @@
     var mapElement = document.getElementById('map');
 
     if (mapElement) {
-      var latitude = parseFloat(mapElement.dataset.latitude);
-      var longitude = parseFloat(mapElement.dataset.longitude);
+      var latitude = parseFloat(MapsData.latitude);
+      var longitude = parseFloat(MapsData.longitude);
       var latLng = { lat: latitude, lng: longitude };
 
       var map = new google.maps.Map(mapElement, {
@@ -42,7 +42,7 @@
 
       var onClickHandler = function() {
         var origin = document.querySelectorAll('.directions-origin input')[0].value;
-        var destination = mapElement.dataset.address;
+        var destination = MapsData.address;
 
         displayRoute(directionsDisplay, directionsService, origin, destination);
 

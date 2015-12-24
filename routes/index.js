@@ -40,16 +40,6 @@ router.get('/', helper.isAuthenticated, function(req, res) {
     });
   }
 
-  // TODO: move to util
-  function append(obj1, obj2) {
-    var result = {};
-
-    for (var key in obj1) result[key] = obj1[key];
-    for (var key in obj2) result[key] = obj2[key];
-
-    return result;
-  }
-
   function requestHomePageData(callback) {
     request(sportifyClient.get(req), callback);
   }
@@ -79,8 +69,8 @@ router.get('/', helper.isAuthenticated, function(req, res) {
   }
 
   function renderPage(err, sportifyResponse, googleMapsResponse) {
-    var response = append(sportifyResponse, googleMapsResponse.results[0].geometry.location);
-
+    var response = Object.assign(sportifyResponse, googleMapsResponse.results[0].geometry.location);
+    
     if (err) {
       res.status(404).send('Error occurred.');
 
