@@ -77,6 +77,7 @@ router.get('/', helper.isAuthenticated, function(req, res) {
     } else {
       try {
         req.session.teamId = response.active_team._id;
+
         res.render('index', response);
 
       } catch(e) {

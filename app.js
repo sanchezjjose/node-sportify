@@ -36,6 +36,13 @@ app.engine('.hbs', exphbs({
       }
       return options.inverse(this);
     },
+    'find': function (elem, list, options) {
+      var found = list.find(function(obj) { 
+        return obj.player_id === elem
+      });
+
+      return found ? options.fn(this) : options.inverse(this);
+    },
     'section': function(name, options) {
       if (!this._sections) this._sections = {};
       this._sections[name] = options.fn(this);
@@ -49,7 +56,7 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(session({ name: 'NODE_SPORTIFY_SESSION', secret: 'houston43', saveUninitialized: true, resave: false }));
+app.use(session({ name: 'NODE_SPORTIFY_SESSION', secret: 'sportify', saveUninitialized: true, resave: false }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));

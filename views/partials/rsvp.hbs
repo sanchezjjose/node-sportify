@@ -22,5 +22,5 @@
   Sportify.activeTeamId = "{{active_team._id}}";
 
   // TODO: remove this hack, should be part of the API response instead
-  Sportify.rsvpStatus = "{{players_in}}".indexOf(Sportify.playerId) >= 0;
+  Sportify.rsvpStatus = {{#find player_id players_in}}true{{else}}false{{/find}};
 </script>
