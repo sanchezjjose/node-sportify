@@ -3,23 +3,25 @@
 
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['jquery', 'react', 'react-dom', '@sanchezjjose/react-toggle-component'], factory);
+    define([
+      'jquery', 
+      '@sanchezjjose/react-toggle-component'
+    ], factory);
 
   } else if (typeof exports === 'object') {
     module.exports = factory(
       require('jquery'),
-      require('react'), 
-      require('react-dom'),
       require('@sanchezjjose/react-toggle-component')
     );
 
   } else {
-    root.rsvp = factory(root.jQuery, root.React, root.ReactDOM, root.ReactToggleComponent);
+    root.rsvp = factory(root.jQuery, root.ReactToggleComponent);
   }
 
-}(this, function ($, React, ReactDom, ReactToggleComponent) {
+}(this, function ($, ReactToggleComponent) {
 
   function init() {
+
     var domElement = document.getElementById('react-toggle-component');
 
     if (domElement) {
@@ -45,21 +47,16 @@
       var opts = {
 
         onState: {
-          text: 'In',
+          text: 'IN',
           styles: {
-            buttonComponent: { },
-            textComponent: { },
-            sliderComponent: { }
+            textComponent: {
+              left: '30'
+            }
           }
         },
 
         offState: { 
-          text: 'Out',
-          styles: {
-            buttonComponent: { },
-            textComponent: { },
-            sliderComponent: { }
-          }
+          text: 'OUT'
         }
       };
 
