@@ -7,8 +7,8 @@ node-sportify:
    - NODE_ENV=development
  links:
    - sportify
- #ports:
- #  - "35729:35729" # livereload
+ ports:
+   - "35729:35729" # livereload
  # restart: always
  volumes:
    - ~/Code/node-sportify:/usr/src/app
