@@ -9,7 +9,9 @@ WORKDIR /usr/src/app
 ADD package.json package.json
 
 
-RUN npm install -g nodemon
+RUN npm install -g \
+    nodemon \
+    gulp-cli
 
 
 RUN npm install

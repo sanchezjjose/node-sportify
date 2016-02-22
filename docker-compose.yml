@@ -2,7 +2,7 @@ node-sportify:
  extends:
    file: common.yml
    service: node-sportify
- command: nodemon -L bin/www #gulp
+ command: nodemon -L bin/www & gulp
  environment:
    - NODE_ENV=development
  links:
